@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象继承</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //ES5 构造方法继承
+    // 定义父级
+    function Phone(brand,price){
+        // 父级实例对象的属性
+        this.brand = brand;
+        this.price = price;
+    }
+    // 父级实例对象的方法
+    Phone.prototype.call = function(){
+        console.log('打电话')
+    }
+    Phone.prototype.sendMessage = function(){
+        console.log('发短信')
+    }
+    // 定义子级
+    function SmartPhone(brand,price,screen,pixel){
+        // 子级实例对象的属性（继承过来的属性，自己独有的属性）
+        // 继承过来的属性
+        Phone.call(this,brand,price)
+        // Phone.apply(this,[brand,price])
+        // 自己独有的属性
+        this.screen = screen;
+        this.pixel = pixel;
+    }
+    // 子级实例对象的方法（继承过来的方法，自己独有的方法） 
+    // 继承过来的方法
+    SmartPhone.prototype = new Phone();
+    // 修改构造器指向
+    SmartPhone.prototype.constructor = SmartPhone;
+    // 自己独有的方法
+    SmartPhone.prototype.playGame = function(){
+        console.log('不在只有贪吃蛇了')
+    }
+    // 创建父级实例对象
+    let oldPhone = new Phone('诺基亚',500)
+    // 创建子级实例对象
+    let xiaomi = new SmartPhone('小米',5000,'6.5inch','100w')
+    console.log(xiaomi)
+    xiaomi.call()
+    xiaomi.sendMessage()
+    xiaomi.playGame()
+          
+    // xiaomi该实例对象是 new谁new出来的
+    console.log(xiaomi.__proto__.constructor)
+    console.log(oldPhone.__proto__.constructor)
+
+</script>
+</html>

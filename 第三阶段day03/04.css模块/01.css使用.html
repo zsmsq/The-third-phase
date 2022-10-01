@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>css使用</title>
+</head>
+<body>
+
+<p style="color: blue;">尚硅谷的大前端</p>
+<p style="color: green;">尚硅谷的大前端</p>
+
+<script src="../js/jquery-1.10.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+  /*
+   1. 得到第一个p标签的颜色
+   2. 设置所有p标签的文本颜色为red
+   3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
+   */
+  //  1. 得到第一个p标签的颜色
+  // console.log($('p:eq(0)').css('color'))
+
+  // 2. 设置所有p标签的文本颜色为red
+  // $('p').css('color','red')
+
+  // 3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
+  // 方式一：
+  // $('p:eq(1)').css('color','#ff0011')
+  // $('p:eq(1)').css('background','blue')
+  // $('p:eq(1)').css('width','300px')
+  // $('p:eq(1)').css('height','30px')
+
+  // 方式二：
+  // $('p:eq(1)').css({
+  //   color : '#ff0011',
+  //   background : 'blue',
+  //   width : '400px',
+  //   height : '100px'
+  // })
+
+  // 方式三：链式调用    eq  equal相等
+  // $('p:eq(1)')
+  //   .css('color','#ff0011')
+  //   .css('background','blue')
+  //   .css('width','300px')
+  //   .css('height','30px')
+
+
+  // p : 字体颜色变成#ff0011   背景颜色blue
+  // p的父元素 ：宽度 300px  高度30px
+  // $('p:eq(1)')
+  //   .css('color','#ff0011')
+  //   .css('background','blue')
+  //   .parent()
+  //   .css('width','300px')
+  //   .css('height','30px')
+  //   .css('color','pink')
+  //   .css('float','left')
+
+  // $('p:eq(1)')
+  //   .css('color','#ff0011')
+  //   .parent()
+  //   .css('background','blue')
+  //   .parent()
+  //   .css('width','300px')
+  //   .next()
+  //   .css('height','30px')
+  //   .parent()
+  //   .css('color','pink')
+  //   .next()
+  //   .css('float','left')
+
+  // 链式调用的思想：
+  // 1. 执行完当前方法后返回原对象，所以我们可以继续以 . 的形式操作该方法
+
+  // 2. 执行完当前方法后 会返回新对象，这个时候，我们以 . 的形式操作该方法，
+  //    我们操作的目标对象就变成了新对象
+  // promise 每一次链式调用后 产生的都是新对象
+
+
+
+
+
+</script>
+</body>
+</html>

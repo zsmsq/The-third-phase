@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="http://127.0.0.1:7070/admin" method="post">
+        <input type="text" name="username">
+        <input type="password" name="psw">
+        <input type="submit" value="提交">
+    </form>
+
+    
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+     };
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义单选和多选按钮</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.list01 li{
+				height: 20px;
+				padding-left: 20px;
+				background: url(img/radio.gif) no-repeat left 2px;
+				cursor: pointer;
+			}
+			.list01 li.active{
+				background-position-y: -16px;
+			}
+			.list02 li{
+				height: 30px;
+				padding-left: 30px;
+				background: url(img/duo1.png) no-repeat 0 0;
+			}
+			.list02 li.current{
+				background-image: url(img/duo2.png);
+			}
+		</style>
+	</head>
+	<body>
+		<input type="radio" />
+		<input type="checkbox" />
+		<h2>单选</h2>
+		<ul class="list01">
+			<li>我是单选</li>
+			<li>我是单选</li>
+			<li>我是单选</li>
+			<li>我是单选</li>
+			<li>我是单选</li>
+		</ul>
+		<h2>多选</h2>
+		<ul class="list02">
+			<li>jq太贴心啦,么么哒</li>
+			<li>jq太贴心啦,么么哒</li>
+			<li>jq太贴心啦,么么哒</li>
+			<li>jq太贴心啦,么么哒</li>
+			<li>jq太贴心啦,么么哒</li>
+		</ul>
+	</body>
+	<script src="../js/jquery-1.10.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		$(function(){
+			// 单选：
+			// 隐式遍历
+			$('.list01 li').click(function(){
+				// 排他
+				// $(this).addClass('active')
+				// $(this).siblings().removeClass('active')
+
+				$(this)
+					.addClass('active')
+					.siblings()
+					.removeClass('active')
+			})
+
+			// 多选：
+			// toggle  切换 开关
+			$('.list02 li').click(function(){
+				$(this).toggleClass('current')
+			})
+
+
+
+		})
+
+	</script>
+</html>

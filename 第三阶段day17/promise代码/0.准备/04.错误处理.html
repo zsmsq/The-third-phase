@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误处理</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    /**
+     * 语法固定 try...catch   try 尝试的意思  catch 捕获
+     * 1. try catch捕获到错误之后, 后续代码可以继续执行
+     * 2. catch 可以将错误信息捕获到. e 是一个对象, 有message和stack两个属性
+     * 3. 抛出错误之后, 在后续的 try 里面的代码不会执行
+     * 4. try 不能捕获语法错误. 其他三种类型错误可以捕获.
+     * 5. 允许使用 throw 手动的抛出错误
+     * 6. 抛出任意类型的数据
+     */
+
+    //  处理错误
+    //  try{
+    //     // js代码
+
+    // }catch(e){
+    //     console.log(e)
+    // } 
+    try {
+        console.log(a)
+        // 3. 抛出错误之后, 在后续的 try 里面的代码不会执行
+        // console.log(999)
+        
+
+        // 4. try 不能捕获语法错误. 其他三种类型错误可以捕获.
+        // for(let i=0;i<10,i++){}
+
+        // 5. 允许使用 throw 手动的抛出错误
+        // if (err) throw err;
+        // console.log('成功')
+        // 6. 抛出任意类型的数据
+        throw 'abc';
+        throw {name:'atguigu',pos:'西安'};
+        console.log(777)
+    } catch (e) {
+        console.log(e)
+        // 2. catch 可以将错误信息捕获到. e 是一个对象, 有message和stack两个属性
+        console.dir(e)
+    }
+    // 1. try catch捕获到错误之后, 后续代码可以继续执行
+    // console.log(111)
+    // console.log(222)
+</script>
+</html>

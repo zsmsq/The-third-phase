@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化对象写法</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // es6书写
+    let name = '李四'
+    let age = 18;
+    let obj = {
+        name,  //在es6语法中，如果 属性名 和 属性值 长得一样，可以简化成一个
+        age ,
+        hobby : ['抽烟','喝酒','烫头'],
+        playgame(){  //在 es6语法中，方法可以简化，  : function 可以省略掉
+            console.log('打豆豆')
+        }
+    }
+
+    // 之前的书写形式
+    // let obj = {
+    //     name : '李四',
+    //     age : 18,
+    //     hobby : ['抽烟','喝酒','烫头'],
+    //     playgame : function(){
+    //         console.log('打豆豆')
+    //     }
+    // }
+
+
+</script>
+</html>

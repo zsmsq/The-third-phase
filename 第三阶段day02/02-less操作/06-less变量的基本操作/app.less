@@ -1,0 +1,27 @@
+// less中声明变量
+
+// 重点掌握
+// 变量用来保存 属性值 的使用方式
+@zero:100px;
+
+
+// 了解
+// 变量用来保存 属性名 : 使用语法变成 @{p}
+@p:pppppppppppp;
+
+// 变量用来保存选择器 ：使用语法变成 @{p}
+@b:box666;
+
+
+*{
+    margin: @zero;
+    padding: @zero;
+}
+.@{b}{
+    @{p}: absolute;
+    top: @zero;
+    left: @zero;
+    right: @zero;
+    bottom: @zero;
+    margin: auto;
+}

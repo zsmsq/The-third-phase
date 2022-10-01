@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-race</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // race 是函数对象的方法，与实例对象无关   race 赛跑
+    // Promise.race() 是正确的
+    // p.race() 是错误的
+    // race方法的参数是 数组，数组中的每一个元素是promise实例对象
+    // 谁跑的快就听谁的
+
+    let p1 = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            resolve('ok1')
+        },2000)
+    })
+
+    let p2 = Promise.reject('err2')
+
+    let p3 = Promise.resolve('ok3')
+
+    let result = Promise.race([p1,p2,p3])
+    // result 是promise实例对象
+    // 该实例状态和结果值 取决于 谁跑的块
+    console.log(result)
+    
+
+
+</script>
+</html>

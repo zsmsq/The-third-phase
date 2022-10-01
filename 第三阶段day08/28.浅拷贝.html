@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浅拷贝</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //拷贝 就是 复制   对象和数组
+
+    // 老对象
+    // 通过某种方式，复制出一个新对象
+    // 新对象
+    // 如果修改新对象的属性，老对象属性不修改，是深拷贝
+    // 如果修改新对象的属性，老对象的属性也跟着修改，是浅拷贝
+
+    // 常见的浅拷贝有哪些方式？
+    // 浅拷贝 拷贝的是地址值
+    // obj和newObj共用的一个地址值
+    //1. 直接赋值
+    // let obj = {
+    //     name : '张三',
+    //     age : 18
+    // }
+    // let newObj = obj;
+    // // 修改新对象的属性
+    // newObj.age = 20;
+
+    // console.log(obj)
+    // console.log(newObj)
+
+
+    // let arr = [1,2,3]
+    // let newArr = arr;
+    // newArr[0] = 999;
+    // console.log(arr)
+    // console.log(newArr)
+    
+    
+    //2. 数组
+        // 1> concat
+        // let arr = [{name:'尚硅谷'},2,3]
+        // let newArr = [].concat(arr);
+
+        // // 修改新数组的值
+        // // newArr[0] = 999;
+        // newArr[0].name = 'atguigu'
+
+        // console.log(arr)
+        // console.log(newArr)
+       
+
+        // 2> slice   截取
+        // let arr = [{name:'尚硅谷'},2,3]
+        // let newArr = arr.slice(0)
+
+        // // 修改新数组的值
+        // newArr[0].name = 'atguigu'
+
+        // console.log(arr)
+        // console.log(newArr)
+        
+        // 3> 扩展运算符
+        // let arr = [{name:'尚硅谷'},2,3]
+        // let newArr = [...arr]
+            // ...把结构搬出来
+        // // 修改新数组的值
+        // newArr[0].name = 'atguigu'
+
+        // console.log(arr)
+        // console.log(newArr)
+        
+
+    //3. 对象   Object.assign 对象的合并
+    // 方式一：
+    // let obj = {
+    //     name : '尚硅谷',
+    //     pos : ['北京','西安']
+    // }
+    // let newObj = Object.assign({},obj)   //对象的合并，后面的参数给第一个
+
+    // // 修改新对象的属性
+    // newObj.pos[0] = 'bj'
+
+    // console.log(obj)
+    // console.log(newObj)
+
+    // 方式二：
+    let obj = {
+        name : '尚硅谷',
+        pos : ['北京','西安']
+    }
+    let newObj = {...obj}
+
+    // 修改新对象的属性
+    newObj.pos[1] = 'xian'
+    // newObj.name = 'atguigu'
+
+
+
+    
+    console.log(obj)
+    console.log(newObj)
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>严格模式</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    // 一、严格模式的声明
+    // 全局严格模式
+    // 'use strict';
+            
+    // 局部严格模式
+    /* function fn(){
+        'use strict';
+    }
+    fn(); */
+    
+    // 二、严格模式的特性
+    //1) 不允许使用未声明的变量
+    // 'use strict';
+    // b = 200;
+    // console.log(b)
+
+    //2) 函数内部的 this 不指向 window
+    // 'use strict';
+    // function fn(){
+    //     console.log(this)  //undefined
+    // }
+    // fn()
+
+    //3) eval 作用域   eval 是一个函数, 接受字符串参数, 会对字符串进行 JS 语法解析并运
+    // 了解
+    // 'use strict';
+    // eval('alert(123)')
+
+    //4) 对象不能有重复的属性 (有覆盖操作)  --- 浏览器不会报错，部分编辑器会报错
+    // 'use strict';
+    // var obj = {
+    //     name : '张三',
+    //     age : 18,
+    //     age : 19
+    // }
+    // console.log(obj)
+
+    //5) 严格模式下 函数不允许有同名的形参
+    // 'use strict';
+    // function main(a,a,a){
+    //     console.log(a)
+    // }
+    // main(1,2,3)
+    
+    //6) 新增一些保留字  private protected implements
+    // 严格模式下 不能用private命名变量
+    'use strict';
+    var private = '私有的'
+    console.log(private)
+</script>
+</html>

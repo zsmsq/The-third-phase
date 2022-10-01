@@ -1,0 +1,13 @@
+<script type="text/javascript" src="module1.js"></script>
+<script type="text/javascript" src="module2.js"></script>
+<script type="text/javascript">
+    myModule.foo()//foo()  module1 atguigu.com
+    myModule.bar()//bar()  module1 atguigu.com
+
+    myModule2.foo()
+    myModule2.bar()
+
+    // //可以直接修改模块内部的数据
+    myModule.data = 'other data'
+    myModule.foo()
+</script>

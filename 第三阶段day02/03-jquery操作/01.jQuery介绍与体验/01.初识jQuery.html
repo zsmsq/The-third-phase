@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>初识jQuery</title>
+</head>
+<body>
+<!--
+需求: 点击"确定"按钮, 提示输入的值
+-->
+
+用户名: <input type="text" id="username">
+<button id="btn1">确定(原生版)</button>
+<button id="btn2">确定(jQuery版)</button>
+
+<script src="../js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  //原生版
+  window.onload = function(){
+    var inputNode = document.querySelector('#username')
+    var btn1 = document.querySelector('#btn1')
+
+    btn1.onclick = function(){
+      // 获取input内容
+      console.log(inputNode.value)
+    }
+  }
+
+  //jQuery版
+  $(function(){
+    $('#btn2').click(function(){
+      console.log($('#username').val())
+    })
+  })
+
+  // 分析 jquery
+  // $函数 执行后的返回值  ： jQuery对象  ---了解
+  // console.log($(function(){}))
+
+  $(function(){})
+  
+  $('#btn2')  //函数调用，传递实参 '#btn2'
+  // $('#btn2') 执行后的返回值  ： jQuery对象 -- 对象
+  $('#btn2').click(function(){})
+
+
+  $('#username') //函数调用，传递实参 '#username'
+  $('#username').val()
+
+
+  // 如果遇到 () ， ()前面的一定是函数
+  // 如果遇到的是 .   ,   .前面一定是对象
+
+  obj.test().val()();
+  // obj 是对象
+  // obj.test 是函数
+  // obj.test() 是对象 --- 函数调用后返回值是对象
+  // obj.test().val  是函数
+  // obj.test().val()  是函数   --- val函数调用后的返回值是新函数
+  // obj.test().val()() 是谁，取决于后面怎么用
+
+  // $  是 ： 函数
+  // (function(w) {
+
+  //   // 给对象添加属性
+  //   w.jQuery = w.$ = function( selector, context ) {	
+  //     	return new jQuery.fn.init( selector, context, rootjQuery );
+	//   }
+
+  // })(window);
+
+  // 调用函数
+  // window.jQuery()
+  // window.$();
+  // jQuery();
+  // $(回调函数);
+  // window['jQuery']();
+  // window['$']()
+
+
+
+
+    console.log(111)
+
+    window.setTimeout(function(){},1000)
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            background: deeppink;
+
+            /* font-size: 0; */
+
+            overflow: hidden;
+        }
+        #box img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        行内块元素：img input button
+     -->
+    <div id ="box">
+        <img src="./img/1.jpg" alt="">
+        <img src="./img/1.jpg" alt="">
+        <img src="./img/1.jpg" alt="">
+    </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+     };
+    </script>
+</body>
+</html>

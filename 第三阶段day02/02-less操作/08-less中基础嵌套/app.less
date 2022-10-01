@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+// 基础嵌套：
+// 把子元素选择器的结构 书写 在父元素中 : 默认产生的选择器是 后代选择器
+#wrap{
+    .list{
+        list-style: none;
+        &::after{      // &  由当前位置出发，前面所有选择
+            content: '';
+            display: block;
+            clear: both;
+        }
+        >li{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin-right: 15px;
+            &:nth-child(1){       //   #wrap>.list>li:nth-child(1){}
+                background: deeppink;
+            }
+            &:hover{   //    #wrap>.list>li:hover{}
+                background: green;
+            }
+            &.active{
+                background: yellow;
+            }
+        }
+    }
+}
+
+// &  由当前位置出发，前面所有选择
+// & 什么时候使用？
+// 伪元素 伪类 nth-child first-child hover 交集选择器

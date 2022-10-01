@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    /**
+     * 1. Promise 的实例化接收一个 函数类型的参数( 执行器函数 )
+     * 2. resolve和 reject 两个形参类型都是 函数.
+     * 3. 执行器函数是一个同步的回调函数
+     */
+
+    // 参数是一个回调函数，该回调函数就是执行器函数
+    // 执行器函数上有两个参数 resolve  reject
+
+    // Promise
+    // ()=>{}
+    // resolve
+    // reject
+    // 共四个函数
+
+    console.log(111)
+     let p = new Promise((resolve,reject)=>{
+        console.log(222)
+        // 成功
+        resolve()
+        // 失败
+        reject()
+     })
+     console.log(333)
+
+
+
+
+
+
+</script>
+</html>

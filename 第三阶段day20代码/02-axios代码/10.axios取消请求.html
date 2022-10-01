@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">发送请求</button>
+    <button id="btn2">取消请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+
+        /* // 1.声明一个全局变量
+        let cancel;
+
+        // 点击btn1发送请求
+        btn1.onclick = function(){
+            // 2.在配置对象上，设置 cancelToken 属性
+            let res = axios({
+                url : 'http://127.0.0.1:8080/index',
+                timeout : 2000,
+                cancelToken : new axios.CancelToken(c=>{
+                    cancel = c;
+                })
+            })
+            console.log(res)
+        }
+
+        // 点击btn2，取消发送
+        btn2.onclick = function(){
+            // 3. 调用 cancel 函数
+            if(cancel){
+                cancel();
+            }
+        } */
+
+
+        // ajax取消请求的语法
+        // xhr.abort();
+        let xhr;
+
+        btn1.onclick = function(){
+            xhr = new XMLHttpRequest()
+            xhr.open('get','http://127.0.0.1:8080/index')
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        console.log('获取数据')
+                    }
+                }
+            }
+        }
+
+        btn2.onclick = function(){
+            xhr.abort();
+        }
+
+     };
+    //  abort不怎么用了
+    </script>
+</body>
+</html>

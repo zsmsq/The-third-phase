@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery核心函数</title>
+</head>
+<body>
+<div>
+  <button id="btn">测试</button>
+  <br/>
+  <input type="text" name="msg1"/><br/>
+  <input type="text" name="msg2"/><br/>
+
+</div>
+
+<!--
+1. 作为一般函数调用: $(param)
+  1). 参数为函数 : 当DOM加载完成后，执行此回调函数
+  2). 参数为选择器字符串: 查找所有匹配的标签, 并将它们封装成jQuery对象
+  3). 参数为DOM对象: 将dom对象封装成jQuery对象
+  4). 参数为html标签字符串 (用得少): 创建标签对象并封装成jQuery对象
+2. 作为对象使用: $.xxx()
+  $.each() : 隐式遍历数组
+-->
+<script src="../js/jquery-1.10.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+  /*
+   需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+   需求2. 遍历输出数组中所有元素值,遍历对象所有元素
+   */
+
+  //  如果 实参是 回调函数function(){}
+  // 类似于 window.onload ，
+  // window.onload ：保证页面中所有资源加载完在执行里面的逻辑
+  // $(function(){}) ：保证页面文档加载完在执行里面的逻辑
+  // window.onload = function(){
+  //   console.log(111)
+  // }
+  $(function(){
+      // 需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+      $('#btn').click(function(){
+          //  显示按钮的文本
+          // 点击谁，谁是事件源 ：btn    js在点击事件中，使用this表示事件源
+          console.log(this)  //this  --- dom对象
+          console.log(this.innerHTML)
+          console.log(this.innerText)
+
+          console.log($('#btn').html())
+          console.log($('#btn').text())
+
+          // dom对象 转化成 jquery对象  ：$(dom对象)
+          console.log($(this))
+          console.log($(this).html()) 
+          console.log($(this).text())
+
+          // jquery对象 转化成 dom对象 ：在 jquery对象后面添加索引下标
+          console.log($(this)[0].innerHTML)
+          console.log($(this)[0].innerText)
+          console.log($('#btn')[0].innerHTML)
+          console.log($('#btn')[0].innerText)
+
+          // console.log($($($('#btn')[0])[0])[0])
+
+          // 显示一个新的输入框
+          // 子.appendTo(父)
+          $('<input type="text" name="msg3"/><br/>').appendTo('div')
+          // 父.append(子)
+          $('div').append('<input type="text" name="msg3"/><br/>')
+
+      })
+
+      // btn.onclick = function(){}
+      // 需求2. 遍历输出数组中所有元素值,遍历对象所有元素
+      var arr = [666,555,444,333]
+      $.each(arr,function(index,item){
+        console.log(index,item)
+      })
+
+      var obj = {
+        name :'小明',
+        age : 18
+      }
+
+      $.each(obj,function(key,value){
+        console.log(key,value)
+      })
+
+
+      // $ 是 函数 ，也是对象   $.isFunction($)
+      // 如果 $ 是函数，可以 $() 形式使用
+      // 如果 $ 是对象，可以 $.xxx 形式使用
+      // 函数 是 对象吗？ 是
+      // 对象 一定是函数吗？不一定 ， 
+
+
+      // 该语法是检查 传递过来的参数 是不是 函数
+      console.log($.isFunction(obj))
+
+      // 
+      console.log($.isFunction($))  //true
+
+
+
+
+
+
+  })
+
+  
+
+</script>
+</body>
+</html>

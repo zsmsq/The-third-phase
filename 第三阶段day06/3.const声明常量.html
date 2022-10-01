@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>const 定义常量</title>
+</head>
+<body>
+
+</body>
+<script>
+    //const 用来声明一个常量(值不变)
+    //0. 格式
+    // const A = 100;
+    // console.log(A)
+
+    //1. 声明的时候一定要赋初始值
+    // const B;
+    // B = 200 ;
+    // 如果这么写，就成了变量的形式
+
+    //2. 常量的名称一般为 『大写』  潜规则
+    // const a = 200;
+    // console.log(a)
+    
+    //3. 不能修改常量的值 
+    // const A = 100;
+    // A = 200;
+    // 直接报错
+    //4. 不允许重复声明
+    // const A = 300;
+    // const A = 500;
+    // 直接报错
+    //5. 块级作用域
+    // if(true){
+    //     const D = 700;
+    //     console.log(D)
+    // }
+    // console.log(D)
+    
+    // if(true){
+    //     const D = 700 ; 
+    //     console.log(D)
+    // }
+    // console.log(D)
+    //6. 关于数组和对象的元素的修改
+    // 数组 和 对象 存储的是地址
+    // const arr = [1,2,3]
+    // arr[0] = 99;
+    // console.log(arr)
+
+    // const arr = [1,2,3]
+    // arr[0] = 99;
+    // console.log(arr)
+    // const obj = {
+    //     name : '李四',
+    //     age : 18
+    // }
+    // obj.age = 20;
+    // console.log(obj)
+    const j = {
+        name:'哈哈',
+        age:'14'
+    }
+    j.age = 90;
+    console.log(j);
+</script>
+</html>

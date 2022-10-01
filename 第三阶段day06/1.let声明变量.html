@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // var 
+    // let
+
+    //let 声明变量
+    //标识符：字母数字下划线($) 首字母不能为数字, 严格区分大小写, 且不能使用关键字
+    // let a;
+    // let b,c;
+    // let d = 100;
+    // let e = 200,f = 300;
+    // console.log(a,b,c,d,e,f)
+    // let a ;
+    // let b,c;
+    // let d = 100 ; 
+    // let e = 200 , f = 300 ; 
+    // console.log(a,b,c,d,e,f)
+
+    // let a ; 
+    // let b ,c ;
+    // let d = 100;
+    // let e  = 200 , f = 300 ; 
+    // console.log(a,b,c,d,e,f) 
+
+    //let 声明特点
+
+    //1. 不允许重复声明
+    // var a = 100;
+    // var a = 200;
+    // console.log(a)  //覆盖操作 200
+
+    // let b = 300;
+    // let b = 400;
+    // console.log(b)
+ 
+    // let a  = 300 ; 
+    // let a  = 400 ; 
+    // console.log(a)
+    // 下面会覆盖上面
+
+    //2. 块 儿级作用域   if(){}  else{}  while  for(){}   {}
+
+    // if(true){
+    //     var c = 100;
+    //     console.log(c)
+    // }
+    // console.log(c)
+
+    // if(true){
+    //     let  c = 100;
+    //     console.log(c)
+    // }
+    // console.log(c)
+
+    //3. 不存在变量提升 (临时性死区)
+    // console.log(a)
+    // var a = 300;
+    // console.log(a)
+
+    // var a ;
+    // console.log(a)
+    // a = 300;
+    // console.log(a)
+
+    // console.log(b)
+    // let b = 500;
+    // console.log(b)
+    
+
+    //4. 不影响作用域链
+    function f1(){
+        // var h = 300;
+        let h = 300;
+        function f2(){
+            console.log(h)
+        }
+        f2()
+    }
+    f1()
+
+</script>
+</body>
+
+</html>

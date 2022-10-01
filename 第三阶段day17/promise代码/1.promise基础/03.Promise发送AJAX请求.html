@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise封装AJAX请求</title>
+</head>
+<body>
+
+<button id="btn">点击发送AJAX</button>
+<ul>
+
+</ul>
+
+</body>
+<script type="text/javascript">
+    let btn = document.querySelector('#btn')
+
+    btn.onclick = function(){
+        // 1.创建 promise实例对象
+        let p = new Promise((resolve,reject)=>{
+            // 2.处理异步语句
+            let xhr = new XMLHttpRequest()
+            let url = 'https://www.yiketianqi.com/free/week?unescape=1&appid=52476632&appsecret=nXkySa4E&city=西安'
+            xhr.open('get',url)
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    // 3.调用成功和失败的回调函数
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        resolve(xhr.responseText)
+                    }else{
+                        reject('失败')
+                    }
+                }
+            }
+        })
+        // 4.处理成功和失败的结果
+        p.then(value=>{
+            console.log(value)
+        },reason=>{
+            console.log(reason)
+        })
+
+
+
+    }
+
+    
+</script>
+</html>

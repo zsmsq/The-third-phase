@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"> </div>
+
+    <script>
+         //  4.声明一个回调函数
+         function cb(data) {
+                console.log(data)  //后端人员传递过来的数据
+                console.log(data.pos[0])
+            }
+        window.onload = function () {
+            let box = document.querySelector('#box')
+
+            box.onclick = function () {
+                // 发送请求：通过jsonp模拟发送请求的动作
+                // 1.创建 script标签
+                let script = document.createElement('script')
+                // 2.给 script标签 添加 src属性
+                // 属性值：发送的目标地址
+                script.src = 'http://127.0.0.1:8080/jsonp?callback=cb'
+                // 3.把 script标签 追加到文档中
+                document.body.appendChild(script)
+
+            }
+        }
+    </script>
+    <!-- <script>数据</script> -->
+    <!-- <script>alert(123)</script> -->
+    <!-- <script>cb(obj)</script> -->
+    <!-- <script>
+        cb({name:'尚硅谷',pos:['北京','西安','武汉']})
+    </script> -->
+</body>
+
+</html>

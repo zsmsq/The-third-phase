@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击发送get请求</button>
+
+    <script>
+     window.onload = function () {
+        let btn = document.querySelector('#btn')
+
+        btn.onclick = function(){
+            fetch('http://127.0.0.1:3000/movies')
+            .then(response=>{
+                // console.log(response)
+
+                // response 本质就是一个对象
+                // 属性的介绍
+                // response.ok   用来表示发送请求是否成功，布尔值
+                // response.status  响应的状态码
+                // response.statusText  响应状态码对应的字符串
+                // response.url 请求的url
+
+                // response.type 请求类型（用来表示是同源还是跨域） 
+                //                cors 代表是跨域  
+                //                basic  代表的是同源 
+
+                // basic  代表的是同源 
+                // html访问路径  http://127.0.0.1:8080/index   ---server.js
+                // fetch访问路径 http://127.0.0.1:8080/fetch   ---server.js
+
+                //                 cors 代表是跨域 
+                // html访问路径    http://127.0.0.1:5500/wor    ---vscode服务器
+                // fetch访问路径   http://127.0.0.1:3000/movies   ----db.json   json-server
+
+                // response.redirected 发送请求时页面是否有跳转
+
+
+                console.log(response.ok)
+                console.log(response.status)
+                console.log(response.statusText)
+                console.log(response.url)
+                console.log(response.type) 
+                console.log(response.redirected)
+
+
+                return response.json();
+            })
+            .then(data=>{
+                console.log(data)  //我们需要的数据
+            })
+            .catch(reason=>{
+                console.log(reason)
+            })
+
+
+        }
+
+     };
+    </script>
+</body>
+</html>

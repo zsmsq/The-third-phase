@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置查询字符串参数</title>
+</head>
+<body>
+    <button id="btn">点击发送请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+         let btn = document.querySelector('#btn')
+
+         // 7.params    设置查询字符串  ---重点
+
+        btn.onclick = async function(){
+            let result = await axios({
+                // 方式一：直接设置在 url 后面
+                // url : 'http://127.0.0.1:8080/index?wd=atgui&tel=123456'
+
+                // 方式2：通过 params 设置查询字符串
+                url : 'http://127.0.0.1:8080/index',
+                params : {
+                    wd : 'xian',
+                    tel : 123456
+                }
+
+            })
+
+            console.log(result)
+        }
+        
+     };
+    </script>
+</body>
+</html>

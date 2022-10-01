@@ -1,0 +1,40 @@
+// 引入外部less文件
+@import './variables.less';
+@import './mixins/grid.less';
+@import './mixins/grid-framework.less';
+
+
+// 固定容器
+.container {
+  .container-fixed(); //混合调用
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+// 流体容器
+.container-fluid {
+  .container-fixed(); //混合调用
+}
+// 行
+.row {
+  .make-row();  //混合调用
+}
+// 列
+.make-grid-columns();  //混合调用
+
+.make-grid(xs); //混合调用，实参 xs
+@media (min-width: @screen-sm-min) {
+  .make-grid(sm);//混合调用，实参 sm
+}
+@media (min-width: @screen-md-min) {
+  .make-grid(md); //混合调用，实参 md
+}
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg); //混合调用，实参 lg
+}

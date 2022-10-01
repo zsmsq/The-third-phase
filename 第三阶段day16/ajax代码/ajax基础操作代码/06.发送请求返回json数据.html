@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        box.onclick = function(){
+            // 1.创建 ajax 对象
+            let xhr = new XMLHttpRequest()
+            // 2.初始化
+            xhr.open('get','http://127.0.0.1:8080/json')
+            // 3.发送
+            xhr.send()
+            // 4.绑定事件
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    // 获取数据
+                    console.log(JSON.parse(xhr.responseText))
+                    
+                }
+            }
+
+
+
+        }
+
+     };
+    </script>
+</body>
+</html>

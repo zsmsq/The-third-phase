@@ -1,0 +1,31 @@
+// less中的函数 --- 混合  mixin
+// 声明混合
+.juzhong(@w:400px,@h:400px,@bg:pink){  //在less中给形参设置默认值
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: @w;
+    height: @h;
+    background: @bg;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#box1{
+    .juzhong(@h:500px);   //混合调用
+    #box2{
+        .juzhong(@w:300px,@h:300px,@bg:rgb(24, 201, 48));
+        #box3{
+            .juzhong(@w:200px,@h:200px,@bg:#2434fa);
+            #box4{
+                .juzhong(@w:100px,@h:100px,@bg:#970afa);
+            }
+        }
+    }
+}

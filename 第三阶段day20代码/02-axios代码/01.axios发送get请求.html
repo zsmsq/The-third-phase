@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios基本使用</title>
+</head>
+<body>
+    <button id="btn">点击发送 get 请求</button>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn = document.querySelector('#btn')
+
+        // 实现步骤
+        // 1.引入 axios
+        // 2.直接调用 axios
+        // 参数：配置对象  config    axios(config)
+        // axios函数的返回值是 promise实例对象
+        // promise实例对象 的结果值里面 存储了后端人员给我们返回的数据
+
+        let result = axios({
+            // 请求类型
+            method : 'get',
+            // 请求的url
+            url : 'http://127.0.0.1:3000/movies'
+        })
+
+        console.log(result)
+        result.then(value=>{
+            console.log(value.data)
+        },reason=>{
+            console.log(reason)
+        })
+     };
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+#1.临时文件（测试文件，过渡文件）
+test.html
+*.swp
+
+#2.多媒体文件，如音频，视频
+*.mp4
+*.mp3
+*.avi
+
+#3.编辑器生成的配置文件
+.idea
+.vscode
+test
+
+#4.npm 安装的第三方模块
+node_modules
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        // 拦截器：
+        // 本质就是一个回调函数
+
+        // 分类：
+        // 请求拦截器：在发送动作之前执行，发送前的准备工作
+        // 响应拦截器：在发送动作之后执行，发送后的收尾工作
+
+        // 请求拦截器
+        // 参数是两个回调函数
+        // 第一个回调函数的形参是配置对象 config ,需要在第一个回调函数中设置返回值
+        // 第一个回调函数的形参是 error
+        axios.interceptors.request.use(config=>{
+            console.log('请求拦截器---成功')
+
+            // 需要在第一个回调函数中设置返回值,返回值是配置对象 config
+            return config;
+        },error=>{
+            console.log('请求拦截器---失败')
+        })
+
+        // 响应拦截器
+        // 参数是两个回调函数
+        // 第一个回调函数是我们响应的信息
+        // 第二个回调函数的形参是 error
+        axios.interceptors.response.use(res=>{
+            console.log('响应拦截器---成功')
+            // 需要在第一个回调函数中设置返回值，返回值就是响应信息 res
+            return res;
+        },error=>{
+            console.log('响应拦截器---失败')
+        })
+
+        // 发送请求的处理语句
+        axios.get('http://127.0.0.1:8080/admin')
+        .then(value=>{
+            console.log(value)
+        },reason=>{
+            console.log(reason)
+        })
+     };
+    </script>
+</body>
+</html>

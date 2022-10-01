@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键问题</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    //promise的几个关键问题
+
+    //4. p.then()返回的新promise的结果状态由什么决定?
+
+    //4. p.then()方法的返回值是谁？  是一个全新的promise实例对象
+    //   返回的 全新的promise实例对象 的状态 到底是什么？
+    
+    //   情况1：返回值 return 是 非promise实例对象
+            // 那么 全新的promise实例对象 的状态 一定是成功 ，结果值就是return后面书写的内容
+
+    //  情况2：书写了 throw 语句
+            // 那么 全新的promise实例对象 的状态 一定是失败，结果值就是throw后面书写的内容
+
+    //  情况3：返回值 return 是 promise实例对象
+            // 如果 return后面是成功的promise实例对象：
+                // 那么 全新的promise实例对象 的状态 一定是成功，结果值是 return后面成功promise实例对象的结果值
+
+            // 如果 return后面是失败的promise实例对象：
+                // 那么 全新的promise实例对象 的状态 一定是失败，结果值是 return后面失败promise实例对象的结果值
+
+    /* let p = new Promise((resolve,reject)=>{
+        resolve('ok')
+    })
+
+    let res = p.then(value=>{
+        console.log(value)
+        // 情况1：返回值 return 是 非promise实例对象
+        // return 123;  // 成功  123
+        // return 'abc'  // 成功  abc
+        // return {name : 'atguigu'}  //成功  {name : 'atguigu'}
+        // return undefined ;  // 或者不写 return  //成功  undefined
+
+        // 请求2：书写了 throw 语句
+        // throw 999;
+        // throw [1,2,3];
+
+        //  情况3：返回值 return 是 promise实例对象
+            // 如果 return后面是成功的promise实例对象：
+        // return new Promise((resolve,reject)=>{
+        //     resolve('ok6')
+        // })
+
+        // return Promise.resolve('ok8')
+
+            // 如果 return后面是失败的promise实例对象：
+        // return new Promise((resolve,reject)=>{
+        //     reject('err2')
+        // })
+        return Promise.reject()
+
+    },reason=>{
+        console.log(reason)
+    })
+
+    console.log(res) */
+
+
+
+
+    //分析
+    let p = new Promise((resolve,reject)=>{
+        reject('err')
+    })
+
+    let res = p.then(value=>{
+        console.log(value)
+        return 123;
+    },reason=>{
+        console.log(reason)
+        // return Promise.reject('err3')
+        // return new Promise((resolve,reject)=>{
+        //     resolve('ok3')
+        // })
+        return Promise.resolve(Promise.reject(new Promise((resolve,reject)=>{
+            resolve('ok6')
+        })))
+
+    })
+
+    console.log(res)
+
+
+
+
+</script>
+</html>

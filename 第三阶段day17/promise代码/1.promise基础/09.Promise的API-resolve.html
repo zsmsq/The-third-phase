@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-resolve</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // resolve 方法 ：是函数对象的方法，与实例对象无关
+    // Promise.resolve()  是正确的
+    // p.resolve()  是错误的
+    // resolve 方法 会给我们返回值promise实例对象
+
+    let p1 = Promise.resolve('okk')
+    // p1 是成功promise实例对象 ，结果值 okk
+    console.log(p1)
+
+    let p2 = Promise.resolve({name:'atguigu'})
+    // p2 是成功promise实例对象，结果值 {name:'atguigu'}
+    console.log(p2)
+
+    // 由 p3 和 p4 可以看出 里面的状态决定外面的状态
+    let p3 = Promise.resolve(new Promise((resolve,reject)=>{
+        resolve('成功')
+    }))
+    console.log(p3)
+
+    let p4 = Promise.resolve(new Promise((resolve,reject)=>{
+        reject('失败')
+    }))
+    console.log(p4)
+
+
+
+
+
+    // // 看看promise实例对象的样子
+    // let p = new Promise((resolve,reject)=>{
+    //     // resolve('okkkkk')
+    //     reject('errrrr')
+    //     // console.log(999)
+    // })
+
+    // console.log(p)
+
+    // promise 实例对象有两个属性
+    // promiseState  该属性用来表示promise实例对象的状态
+        // promise实例对象的状态 有哪些？
+        // 默认状态：pending
+        // 成功状态：fulfilled
+        // 失败状态：rejected
+        // promise实例对象的状态只能修改一次
+        // 后续的语句正常执行
+
+    // promiseResult  该属性用来表示promise实例对象的结果值
+    // 结果值的默认值：undefined
+    // 结果值其实就是 resolve reject 函数调用的实参
+
+
+
+
+
+</script>
+</html>

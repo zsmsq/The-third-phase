@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量的解构赋值</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    //数组的解构赋值  (一一对应关系)
+    // let arr = [111,222,333,444]
+    // let [one,two,c,four,five] = arr;
+    // console.log(one,two,c,four,five)
+
+    // let one = arr[0]  //111
+    // let two = arr[1]  //222
+
+    //对象的解构赋值  (不是一一对应关系，是通过 属性名 建立联系的)
+    // let obj = {
+    //     name : '张三',
+    //     age : 18
+    // }
+
+    // let {name,age} = obj 
+    //name 有双重身份：1，声明的一个变量是name  2.name是obj真实存在的属性
+    // console.log(name,age)
+
+    // let {a,b} = obj
+    // console.log(a,b) 对象的结构赋值不是一一对应的，不能使用
+
+    // let {age,name} = obj;  //没有位置的要求
+    // let {age} = obj;  //没有数量的要求
+    // console.log(name, age)
+
+
+
+
+    //复杂的解构赋值
+    // let obj = {
+    //     name : '尚硅谷',
+    //     flag : '让天下有学不完的技术',
+    //     pos : [{po1:'北京'},'西安','上海']
+    // }
+    // // 方式一：
+    // let {pos,name} = obj;
+    // let [bj] = pos;
+    // console.log(bj)
+    // console.log(name)
+
+    let obj ={
+    name:'woca',
+    flag:'卷不动了',
+    pos:[{po1:'的真的吗'},'假的','不可能']
+    }
+// 方式一
+    // let {pos,name}=obj;
+    // let[bj] = pos;
+    // console.log(bj)
+    // console.log(name)
+// 数组的话就是第一个 方式一
+
+    // 方式二：
+    // let [a] = obj.pos;
+    // console.log(a)
+    // let [a] = obj.pos;
+    //  console.log(a)
+    // 方式三：(大坑)
+    let {pos:[a,b],flag} = obj;
+    // console.log(pos)  //报错
+    console.log(a) 
+    console.log(flag) 
+
+    // console.log(pos)  //报错
+
+    
+
+</script>
+</html>

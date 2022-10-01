@@ -1,0 +1,51 @@
+初始化
+npm init
+cnpm init
+yarn init
+cyarn init
+
+下载生产依赖
+npm i 包名
+cnpm i 包名
+yarn add 包名
+cyarn add 包名
+
+下载开发依赖
+npm i 包名 -D
+cnpm i 包名 -D
+yarn add 包名 --dev
+cyarn add 包名 --dev
+
+删除局部包
+npm remove 包名
+cnpm remove 包名
+yarn remove 包名
+cyarn remove 包名
+
+下载全局的包
+npm i 包名 -g
+cnpm i 包名 -g
+yarn global add 包名
+cyarn global add 包名
+
+删除全局的包
+npm remove 包名 -g
+cnpm remove 包名 -g
+yarn global remove 包名 
+cyarn global remove 包名 
+
+根据 package.json 下载包
+npm i
+cnpm i
+yarn
+cyarn
+
+下载固定版本的包
+npm i 包名@1.1.1
+cnpm i 包名@1.1.1
+yarn add 包名@1.1.1
+cyarn add 包名@1.1.1
+
+安装时的npm i nodemon -g 实时监测
+
+模块化 有维护性和复用性

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-all</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // all 方法 ：是函数对象的方法 ，与实例对象无关
+    // Promise.all()  是正确的
+    // p.all()  是错误的
+    // all方法的参数是一个数组 ，数组中的每一个元素是promise实例对象
+
+    /* // 情况1：数组中的每一个元素是promise实例对象 的状态 都是成功
+    let p1 = new Promise((resolve,reject)=>{
+        resolve('ok1')
+    })
+    let p2 = new Promise((resolve,reject)=>{
+        resolve('ok2')
+    })
+    let p3 = Promise.resolve('ok3')
+
+    let result = Promise.all([p1,p2,p3])
+    // result 是成功的promise实例对象
+    // 结果值是 数组，数组中的每一个元素 是 每一个成功promise实例对象的结果值
+    //  ['ok1','ok2','ok3']
+    console.log(result) */
+
+
+    // 情况2：数组中的每一个元素是promise实例对象 的状态 有失败的
+    let p1 = new Promise((resolve,reject)=>{
+        resolve('ok1')
+    })
+    let p2 = new Promise((resolve,reject)=>{
+        reject('err2')
+    })
+    let p3 = Promise.reject('err3')
+    
+    let result = Promise.all([p1,p2,p3])
+    // result 是失败的promise实例对象
+    // 结果值：是数组中第一个失败的promise对象的结果值 err2
+    console.log(result)
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // 万物皆对象
+
+        var obj = {
+            name : '小蓓'
+        }
+
+        // 获取对象的属性值
+        // 对象名.属性名
+        // 对象名['属性名']
+
+        // console.log(obj.name)
+        // console.log(obj['name'])
+
+        // 给对象设置新属性
+        obj.age = 18;
+        obj['hobby'] = '臭美';
+
+        // console.log(obj)
+
+        // obj['age'] 与 obj[age] 区别
+        // 如果有引号，age是对象中真实的属性名
+        // 如果没有加引号，age是一个变量
+
+        // 遍历对象，枚举对象的属性
+        for(var item in obj){
+            // item 本质是变量，代表对象上的每一个属性名 
+            // 对象的属性名 的数据类型是  string
+            console.log(item)
+            // 取出对象上的每一个属性值
+            console.log(obj[item])
+            // console.log(obj['item'])    //undefined
+            console.log(obj.item)  //undefined
+        }
+
+
+
+        // for   for in  forEach  while  do while    for of
+
+
+
+
+     };
+    </script>
+</body>
+</html>

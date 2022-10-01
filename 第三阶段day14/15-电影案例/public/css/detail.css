@@ -1,0 +1,15 @@
+#list{
+    list-style: none;
+    
+}
+#list li{
+    margin-left: -45px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+#list li img , #list li div{
+    float: left;
+}
+#list li img{
+    margin-right: 15px;
+}

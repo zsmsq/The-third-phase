@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // 集合： map 地图，映射
+    //声明 Map
+    // 参数：是 二维数组
+    let m = new Map([
+        ['name','尚硅谷'],
+        ['pos','西安']
+    ]);
+    // console.log(typeof m)
+    //添加元素  
+    m.set('founder','刚哥')
+    let obj = {
+        key : 'value1'
+    }
+    m.set(obj,18)
+    // console.log(m)
+
+    // 对象中的属性名是什么数据类型：string
+
+    //获取元素
+    // console.log(m.get('pos'))
+    // console.log(m.get(obj))
+    // console.log(m.get('obj'))
+    
+    //删除元素
+    // m.delete('pos')
+    // m.delete(obj)
+    // console.log(m)
+   
+    //检测
+    // console.log(m.has('founder'))
+    // console.log(m.has('obj'))
+    // console.log(m.has(obj))
+      
+    //元素个数
+    // console.log(m.size)
+
+    //清空
+    // m.clear()
+    // console.log(m.size)
+    
+    //遍历  for of
+    for(let item of m){
+        // item : 是键值对组成的小数组
+        console.log(item)
+    }
+    for(let item of m){
+        
+    }
+
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+        // 封装
+        let $ = {  
+            get : function(url,data,callback){
+             // 发送ajax
+             // 1.创建 ajax 对象
+                let xhr = new XMLHttpRequest()
+                // 2.初始化
+                let str = ''
+                // 处理data ： {a:100,b:200,c:300}  === 》 a=100&b=200&c=300
+                for(let i in data){
+                    // console.log(i)  //每一个属性名
+                    // console.log(data[i]) //每一个属性值
+                    str += `${i}=${data[i]}&`;
+                }
+                str = str.slice(0,-1)
+                let URL = `${url}?${str}`;
+                xhr.open('get',URL)
+                // 3.发送
+                xhr.send();
+                // 4.绑定事件
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4){
+                        callback(xhr.responseText)
+                    }
+                }
+            }
+        }
+        $.get('http://127.0.0.1:8080/my-jquery',{a:100,b:200,c:300},function(data){
+            console.log(data)
+        })
+        // 由目标往前推
+     };
+    </script>
+</body>
+</html>

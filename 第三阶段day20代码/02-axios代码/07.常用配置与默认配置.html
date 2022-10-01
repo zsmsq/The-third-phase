@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios的常用配置与默认配置</title>
+</head>
+<body>
+    <button id="btn">点击发送请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        //  常用的配置对象
+        // 1.method    设置请求类型的，axios默认的请求类型是get  ---重点
+        // 2.url       设置请求的url   ---重点
+        // 3.headers   设置请求头
+        // 4.data      设置请求体，（查询字符串格式，json格式）  ---重点
+        // 5.timeout   设置超时时间
+        // 6.baseURL   设置基础URL    ---重点
+        // 7.params    设置查询字符串  ---重点
+
+        // 设置默认配置对象
+        axios.defaults.baseURL = 'http://127.0.0.1:9090'
+        // 设置默认超时时间
+        axios.defaults.timeout = 2000
+        // 设置默认请求的类型
+        axios.defaults.method = 'post'
+
+
+        // 发送三次请求
+        let result1 = axios({
+            url : '/one',
+            method : 'get'
+            
+        })
+        console.log(result1)
+
+        let result2 = axios({
+            url : '/two'
+        })
+        console.log(result2)
+
+        let result3 = axios({
+            url : '/three'
+        })
+        console.log(result3)
+
+
+
+        // 设置默认配置对象
+        // axios.defaults.baseURL = 'http://127.0.0.1:3000'  //协议 域名 端口
+
+        // // 使用常用配置对象
+        // btn.onclick = function(){
+        //     let result1 = axios({
+        //         method : 'post',
+        //         // url : 'http://127.0.0.1:3000/movies', 
+        //         url : '/movies',          
+        //         data : {
+        //             c : 300 ,
+        //             d : 400
+        //         },               
+
+        //     })
+
+        //     let result2 = axios({
+        //         method : 'post',
+        //         // url : 'http://127.0.0.1:3000/movies',
+        //         url : '/movies',
+        //         data : {
+        //             c : 600 ,
+        //             d : 700
+        //         },
+        //         timeout : 2000
+
+        //     })
+
+
+        // }
+
+
+
+        /* let btn = document.querySelector('#btn')
+        btn.onclick = function(){
+            let result = axios({
+                url : 'http://127.0.0.1:8080/index',
+                // 5.timeout   设置超时时间
+                timeout : 2000
+
+            })
+
+            console.log(result)
+        } */
+        
+
+
+        
+        
+     };
+    </script>
+</body>
+</html>

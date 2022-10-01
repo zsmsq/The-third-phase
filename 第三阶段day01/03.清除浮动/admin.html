@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 400px;
+            background: greenyellow;
+            border: 10px solid #000;
+
+            /* overflow: hidden; */
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+
+            float: left;
+        }
+        /* 伪元素： 假的元素 */
+        /* 伪元素默认是 inline元素 */
+        #wrap::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id ="box"></div>
+        
+    </div>
+    
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+     };
+    </script>
+</body>
+</html>

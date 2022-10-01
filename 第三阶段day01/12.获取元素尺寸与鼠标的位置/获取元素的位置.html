@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 400px;
+            height: 400px;
+            background: yellowgreen;
+            margin: 50px auto;
+            position: relative;
+        }
+        #box{
+            position: absolute;
+            top: 150px;
+            left: 200px;
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /* margin-left: 10px; */
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id ="box"></div>
+    </div>
+    
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // 获取元素的位置
+        // offsetLeft   offsetTop  与定位父元素有关
+        console.log(box.offsetLeft)
+        console.log(box.offsetTop)
+
+        // 获取元素的位置  与浏览器的可视窗口有关
+        console.log(box.getBoundingClientRect().left)
+        console.log(box.getBoundingClientRect().top)
+
+     };
+    </script>
+</body>
+</html>

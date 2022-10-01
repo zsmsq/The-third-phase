@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击 DIV 换色</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .item {
+            width: 100px;
+            height: 50px;
+            border: solid 1px rgb(42, 156, 156);
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    // 获取元素
+    const itemS = document.querySelectorAll('.item')
+    // // 遍历
+    // for(let i=0;i<itemS.length;i++){
+    //     itemS[i].onclick = function(){
+    //         // 排他
+    //         for(let j=0;j<itemS.length;j++){
+    //             itemS[j].style.background = 'yellow'
+    //         }
+    //         itemS[i].style.background = 'pink'
+    //     }
+    // }
+    // {
+    //     i = 0;
+    //     itemS[i].onclick = function(){
+    //         // 排他
+    //         for(var j=0;j<itemS.length;j++){
+    //             itemS[j].style.background = '#fff'
+    //         }
+    //         itemS[i].style.background = 'pink'
+    //     }
+    // }
+
+    // {
+    //     i = 1;
+    //     itemS[i].onclick = function(){
+    //         // 排他
+    //         for(var j=0;j<itemS.length;j++){
+    //             itemS[j].style.background = '#fff'
+    //         }
+    //         itemS[i].style.background = 'pink'
+    //     }
+    // } 
+     {
+      i = 2;
+     itemS[i].onclick = function(){
+        // 排他
+       for (var j = 0; j < itemS.length; j++) {
+             itemS[j].style.background = '#fff'
+              }
+            itemS[i].style.background = 'pink'
+      }
+    }
+</script>
+</html>

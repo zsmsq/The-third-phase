@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async介绍</title>
+</head>
+<body>
+    <script>
+        // async 就是一个关键字
+        // 使用：放在函数的前面
+        // async关键字，会将函数的返回值封装成promise实例对象
+        // promise实例对象 取决于啥呢？
+        // 情况1：return 后面是非promise实例对象： 成功   结果值就是return后面书写的内容
+        // 情况2：书写 throw : 失败，结果值就是throw后面书写的内容
+        // 情况3：return 后面是promise实例对象
+        //       
+
+
+        async function main(){
+            console.log(666)
+            // 情况1：return 后面是非promise实例对象： 成功   结果值就是return后面书写的内容
+            // return 123;
+            // return {};
+
+            // throw 'fff';
+
+            // 情况3：return 后面是promise实例对象
+            return new Promise((resolve,reject)=>{
+                // resolve('okkk')
+                reject('errrr')
+            })
+
+        }
+        let result = main()
+        console.log(result)
+
+    </script>
+</body>
+</html>

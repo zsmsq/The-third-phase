@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // ES6 允许使用「箭头」（=>）定义函数。
+    // 普通函数
+    /* function test(){      
+    }
+    test() */
+    
+    //1. 声明格式
+    // let test = (形参) => {
+    //     console.log(123)
+    // }
+    // //2. 函数调用
+    // test(实参)
+
+
+    // let main = (a,b) => {
+    //     console.log(a,b)
+    // }
+    // main(10,20)
+        //  let main = (a,b) =>{
+        //     console.log(a,b)
+        //  }
+        //  main(100,200)
+    // this:
+    // 在 script标签中，this是window  ---（了解）
+    // 普通函数调用，this 是window
+    // 方法调用，this是调用的对象
+    // 构造函数中，this是实例对象
+    // 绑定事件，this是事件源
+    // call apply bind 中，this是修改后
+    // 在定时器中，this 是 window 
+    // 在严格模式中，普通函数调用，this变成 undefined --- （了解）
+    // 箭头函数中this，是外层作用域的this，箭头函数的this是静态(只看外边，里面不动)，不能修改
+
+    /* let test = ()=>{
+        console.log(this)
+    }
+    test() */
+    let obj = {
+        abc : function(){
+            let test = ()=>{
+                console.log(this)
+            }
+            test()
+        }
+    } 
+    obj.abc(); 
+
+    // let obj = {
+    //     abc : ()=>{
+    //         console.log(this)
+    //         let test = ()=>{
+    //             console.log(this)
+    //         }
+    //         test()
+    //     }
+    // }
+    // obj.abc();
+
+    // let main = ()=>{
+    //     console.log(this)
+    // }
+    // main.call({})
+    
+    // 箭头函数特点
+    // 1. this 的值是静态的
+
+    // 2. 不能作为构造函数使用
+    // new Object()
+
+    // 3. 不能使用 arguments
+    // function fn(){
+    //     console.log(arguments)
+    // }
+    // fn(7,8,9)
+
+    // let fun = ()=>{
+    //     console.log(arguments)
+    // }
+    // fun(9,8,7)
+
+    // 4. 箭头函数简写
+    // 一 不写小括号, 当形参有且只有一个的时候
+    // 二 不写花括号, 当代码体只有一条语句的时候, 并且语句的执行结果为函数返回值的
+    //  (如果不写花括号的话, return 也不能写)
+    /* let test = (item)=>{
+        return item * item;
+    } */
+
+    /* let test = item =>{
+        return item * item;
+    } */
+
+    let test = item => item * item;
+    console.log(test(5))
+
+
+    // function t(item){
+    //     console.log(item * item)
+    //     return item * item;
+    // }
+    // t(7)
+
+
+    // this
+
+    
+</script>
+</html>

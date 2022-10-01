@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>事件委托</title>
+</head>
+<body>
+<ul id="list">
+  <li>1111</li>
+  <li>2222</li>
+  <li>3333</li>
+  <li>4444</li>
+</ul>
+<br>
+<button id="btn">添加新的li</button>
+
+<script src="../js/jquery-1.10.1.js"></script>
+<script>
+
+  // 事件委派 事件代理 事件委托
+  // 绑定事件 给 父元素 绑定事件
+  // 触发事件的目标元素是：event.target
+
+  // 使用之前语法
+  // var list = document.querySelector('#list')
+  // list.onclick = function(event){
+  //     // console.log(event.target)   //子
+  //     // console.log(this)  //父
+
+  //     event.target.style.background = 'hotpink'
+  // }
+
+  // jquery的事件委派
+  $('#list').on('click','li',function(){
+    // 触发的子元素  this
+    // console.log(this)
+    $(this).css('background','deeppink')
+  })
+
+
+  // 2. 点击 btn 就添加一个 li
+  $('#btn').click(function(){
+    $('ul').append('<li>新来的li</li>')
+  })
+
+
+
+</script>
+</body>
+</html>

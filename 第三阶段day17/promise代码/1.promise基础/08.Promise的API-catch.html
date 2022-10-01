@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-catch</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // catch 是实例对象的方法，与函数对象无关
+    // Promise.catch()  是错误的
+    // p.catch()  是正确的
+    // catch 方法 只处理 promise实例对象的失败结果
+
+    let p = new Promise((resolve,reject)=>{
+        reject('err')
+    });
+
+    p.catch(reason=>{
+        console.log(reason)
+    })
+
+    // 模拟的catch
+    p.then(undefined,reason=>{
+        console.log(reason)
+    })
+
+
+</script>
+</html>

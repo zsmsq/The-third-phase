@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 400px;
+            height: 300px;
+            border: solid 1px #000;
+        }
+    </style>
+    <script crossorigin="anonymous" src='https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js'></script>
+    <link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="page-header">天气获取</h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputNode">
+                <span class="input-group-btn">
+                    <button id="btn" class="btn btn-default" type="button">点击获取</button>
+                </span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <hr>
+    <ul id="result">
+      
+    </ul>
+</div>
+<!-- https://tianqiapi.com/  天气的接口 -->
+<script type="text/javascript">
+    // 获取元素
+    let inputNode = document.querySelector('#inputNode')
+    let btn = document.querySelector('#btn')
+    let result = document.querySelector('#result')
+
+    btn.onclick = function(){
+        result.innerHTML = '';
+        // 获取城市的名称
+        let city = inputNode.value;
+
+        // 发送ajax
+        let xhr = new XMLHttpRequest()
+
+        let url = 'https://www.yiketianqi.com/free/week?unescape=1&appid=52476632&appsecret=nXkySa4E&city=' + city;
+        xhr.open('get',url)
+        xhr.send()
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status >= 200 && xhr.status < 300){
+                    let data = JSON.parse(xhr.responseText)
+                    console.log(data)
+
+                    data.data.forEach(function(item){
+                        // 创建 li
+                        let liNode = document.createElement('li')
+                        liNode.innerHTML = `${item.date}  ${item.wea}  ${item.win}`;
+                        result.appendChild(liNode)
+                    })
+                }
+            }
+        }
+
+
+
+
+    }
+    
+    
+</script>
+</body>
+</html>

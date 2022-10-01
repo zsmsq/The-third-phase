@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // 回调函数：
+        // 1.我们自己定义
+        // 2.不需要我们调用
+        // 3.最终会执行  (系统，浏览器)
+
+        box.onclick = function(){
+        }
+        // 点击动作 是我们干的，点击后会触发调用语句 
+        // 调用语句  box.onclick()
+        setTimeout(function(){},1000)
+     };
+    </script>
+</body>
+</html>

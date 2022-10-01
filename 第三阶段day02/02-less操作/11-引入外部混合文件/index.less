@@ -1,0 +1,19 @@
+// 引入 外部less文件
+@import './mixin/center.less';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#box1{
+    .juzhong(@h:500px);   //混合调用
+    #box2{
+        .juzhong(@w:300px,@h:300px,@bg:rgb(24, 201, 48));
+        #box3{
+            .juzhong(@w:250px,@h:250px,@bg:#2434fa);
+            #box4{
+                .juzhong(@w:50px,@h:50px,@bg:#970afa);
+            }
+        }
+    }
+}

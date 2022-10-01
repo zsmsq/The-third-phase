@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+    
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // 表示字符串：  
+        // 单引号 ''
+        // 双引号  ""
+        // 反引号  ``
+
+        var str1 = '这是一个单引号'
+        var str2 = "这是一个双引号"
+        var str3 = `这是一个
+        反引号`
+
+        console.log(str1)
+        console.log(str2)
+        console.log(str3)
+
+        console.log(typeof str1)
+        console.log(typeof str2)
+        console.log(typeof str3)
+
+        // 单引号 双引号 不支持换行
+        // 反引号 支持换行
+
+        // 拼串：单引号 双引号 使用 + 进行拼串
+        //       反引号  ${}  进行拼串
+
+        var str4 = 'pin'
+
+        console.log('单'+ str4 +'引号')
+        console.log("单"+ str4 +"引号")
+
+        console.log(`${str4}反${str4}引号`)
+
+        // 反引号   模板字符串
+        let str5 = `
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+        `
+        console.log(str5)
+
+     };
+    </script>
+</body>
+</html>

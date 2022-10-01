@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script src="./promise.js"></script>
+    <script>
+    // 异步任务
+     let p = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            // resolve('ok2')
+            reject('err2')
+        },5000)
+     })
+     p.then(value=>{
+         console.log(value)  
+     },reason=>{
+        console.log(reason)
+     })
+     p.then(value=>{
+         console.log(value)  
+     },reason=>{
+        console.log(reason)
+     })
+     p.then(value=>{
+         console.log(value)  
+     },reason=>{
+        console.log(reason)
+     })
+
+     console.log(p)
+
+    //  p.then先执行，5s前 p 的状态是默认状态pending ，里面回调函数不执行
+    // 5s到了，resolve()调用，p的状态变为成功，
+    // p.then中第一个回调函数才会执行
+
+
+
+
+
+    </script>
+</body>
+</html>

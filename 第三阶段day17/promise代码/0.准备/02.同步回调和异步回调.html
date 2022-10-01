@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同步回调和异步回调</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // 同步回调 : 数组遍历相关的回调函数 （foreach） ，promise的执行器函数
+    // 数组遍历相关的回调函数
+    let arr = ['aaa','bbb','ccc']
+    arr.forEach(function(item){
+        console.log(item)
+    })      
+    // 异步回调：
+    // ajax 
+    // 定时器
+    // fs模块
+    // 绑定事件
+    // promise处理成功和失败的回调函数
+
+    // js执行的时候：先同步在异步
+
+    console.log(111)
+    setTimeout(function(){
+        console.log(2222)
+    })
+    console.log(3333)
+
+
+
+</script>
+</html>

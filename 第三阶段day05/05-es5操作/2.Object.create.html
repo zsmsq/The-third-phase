@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // 创建对象的语法
+    // 字面量
+    // new 
+    // Object.create()  以某一个老对象为原型创建一个新对象
+
+    // 新对象 是 以老对象为原型创建出来的，
+    // 所以 新对象 有老对象的特点 也有 自己新的特点
+
+    // 老对象
+    var car = {
+        name : '汽车',
+        run : function(){
+            console.log('可以兜风')
+        }
+    }
+
+    // 以老对象为原型创建 新对象
+    var aodi = Object.create(car,{
+        // 存放 新对象 的新属性
+        brand : {
+            value : '奥迪',
+            writable : true , //该属性是否可以进行修改，默认是不可以的
+            configurable : true , //该属性是否可以进行删除，默认是 不可以的
+            enumerable : true //该属性是否可以进行 for in，默认是不可以的
+        },
+        price : {
+            value : '50w',
+            enumerable : true
+        }
+    })
+
+    // 修改对象的属性
+    // aodi.brand = 'aodi'
+
+    // 删除对象的属性
+    // delete aodi.brand;
+
+    // 枚举 aodi 的属性（遍历）
+    for(var item in aodi){
+        console.log(item)
+    }
+
+    console.log(car)
+    console.log(aodi)
+    // console.log(aodi.name)
+    // aodi.run()
+
+    
+
+    
+</script>
+</html>

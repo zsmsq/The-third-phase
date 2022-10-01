@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义遍历数据</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // 自定义遍历数据 , 自定义迭代器
+    const team = {
+        name: 'BJH5',
+        members: [
+            'xiaoA',
+            'xiaoB',
+            'xiaoC',
+            'xiaoD'
+        ],
+       // 1.设置 Symbol.iterator 方法
+       [Symbol.iterator] : function(){
+          // 6.定义下标
+        let index = 0;
+        // 2.返回值：指针对象(模拟的指针对象)
+        return {
+        // 3.给指针对象添加 next 方法
+        next : function(){
+         // 5.设置 value 的值
+        let value = team.members[index]
+         // 7.设置 done 的值
+           let done = false;
+         // 8.遍历完成了(index===数组的长度)，才可以变成 true
+           if(index >= team.members.length){
+                     done = true;
+                 }
+                 index++;
+                 // 4.设置返回值：是一个对象，有value done属性
+                return {value,done};
+                }
+            }
+        }  
+    }
+    // 对象可以使用 for of , item 表示xiaoA xiaoB xiaoC xiaoD
+    // for(let item of team){
+    //     console.log(item)
+    // }
+    // let iter = team[Symbol.iterator]();
+    // console.log(iter)
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+    // console.log(iter.next())
+</script>
+</html>

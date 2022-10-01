@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    
+    // 老对象
+    let obj = {
+        name : '尚硅谷',
+        pos : ['北京','西安','深圳','武汉','上海','成都'],
+        founder : {
+            name : '刚哥',
+            age : 42,
+        },
+        test : function(){
+            console.log('测试')
+        }
+    }
+    
+    // 封装深拷贝
+    function deepClone(oldObj){
+        // 1.准备容器：
+        let container;
+        // 2.根据 oldObj ,决定容器是 {} 还是[]
+        let type = getDataType(oldObj)
+        // 如果 oldObj 是对象，容器是 {}
+        if(type === 'Object'){
+            container = {}
+        }
+        // 如果 oldObj 是数组，容器是 []
+        if(type === 'Array'){
+            container = []
+        }
+
+    // 3.把 老对象 的每一个属性名取出来，给新对象添加上去
+        for(let item in oldObj){
+            // 4.获取每一个 属性值 的数据类型
+            let valueType = getDataType(oldObj[item])
+            if(valueType === 'Object' || valueType === 'Array'){
+                // 如果 属性值 是对象或者数组，
+                container[item] = deepClone(oldObj[item])
+            }else if(valueType === 'Function'){
+                // 如果 属性值 是函数，使用 bind方法
+                container[item] = oldObj[item].bind(container)
+            }else{
+                // 如果 属性值 是基本数据类型，直接赋值操作
+                container[item] = oldObj[item]
+            }         
+        }
+        // 返回值：新对象
+        return container;
+    }
+    // 新对象
+    let newObj = deepClone(obj)
+    // 修改新对象的属性
+    newObj.pos[1] = 'xian'
+    newObj.founder.age = 40;
+
+    console.log(obj)
+    console.log(newObj)
+
+    //封装函数：判断数据类型的
+    function getDataType(data) {
+        if(typeof data === 'object'){
+            if(data instanceof Array){
+                //数组
+                return 'Array';
+            }else {
+                //对象
+                return 'Object';
+            }
+        }else if(typeof data === 'function'){
+            //函数
+            return 'Function';
+        }else {
+            //num str bool (基本数据类型)
+            return false;
+        }
+    }
+    /////////////////////
+</script>
+</html>

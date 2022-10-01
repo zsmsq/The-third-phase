@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script src="./promise.js"></script>
+    <script>
+    // then方法的返回值-异步
+     let p = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            // resolve('ok3')
+            reject('err3')
+        },5000)
+     })
+     let result = p.then(value=>{
+         console.log(value)  
+     },reason=>{
+        console.log(reason)
+        return new Promise((resolve,reject)=>{
+            resolve('OKKKK')
+            reject('EEEEEEEE')
+        })
+    })
+     console.log(p)
+     console.log(result)//
+    // 5s前 p是默认状态 undefined /  result 是默认状态 undefined
+    // 5s后 p是成功 OK3  / result 是成功 undefined              
+    </script>
+</body>
+</html>

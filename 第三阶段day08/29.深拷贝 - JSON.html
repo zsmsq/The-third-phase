@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝 - JSON</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //使用 JSON 实现深拷贝
+    let obj = {
+        name : '尚硅谷',
+        pos : ['北京','西安','深圳','武汉','上海','成都'],
+        founder : {
+            name : '刚哥',
+            age : 42
+        },
+        test : function(){
+            console.log('测试')
+        }
+    }
+
+    // 1.把 对象 变成 JSON字符串
+    let str = JSON.stringify(obj)
+    // 2.把 JSON字符串 变成 对象
+    let newObj = JSON.parse(str)
+    // json实现深拷贝，方法拷不过去
+    // 修改新对象的属性
+    newObj.pos[0] = 'bj'
+    newObj.founder.age = 40;
+
+    console.log(obj)
+    console.log(str)
+    console.log(newObj)
+    // 如何实现深拷贝？（json方法除外）
+</script>
+</html>

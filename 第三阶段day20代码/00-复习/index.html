@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     let box = document.querySelector('#box')
+
+     box.onclick = function(){
+         let xhr = new XMLHttpRequest()
+         xhr.open('post','http://127.0.0.1:8080/index?a=100&b=200')
+
+        //  设置请求头
+        xhr.setRequestHeader('aaaa','bbbb')
+
+        // 请求体 以 查询字符串格式出现，如果需要解析设置请求头
+        // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        // xhr.send('username=xiaohong&age=12345')
+
+        // 请求体 以 json 格式出现（默认处理），如果需要解析设置请求头
+        xhr.setRequestHeader('Content-Type','application/json')
+        xhr.send('{"username":"xiaoming","psw":123}')
+    
+        // 设置请求体
+         xhr.onreadystatechange = function(){
+             if(xhr.readyState === 4){
+                 if(xhr.status >= 200 && xhr.status < 300){
+                    console.log(xhr.responseText)
+                 }
+             }
+         }
+     }
+
+    </script>
+</body>
+</html>

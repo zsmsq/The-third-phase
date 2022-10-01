@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#wrap .list {
+  list-style: none;
+}
+#wrap .list::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#wrap .list > li {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: pink;
+  margin-right: 15px;
+}
+#wrap .list > li:nth-child(1) {
+  background: deeppink;
+}
+#wrap .list > li:hover {
+  background: green;
+}
+#wrap .list > li.active {
+  background: yellow;
+}
+/*# sourceMappingURL=./app.css.map */

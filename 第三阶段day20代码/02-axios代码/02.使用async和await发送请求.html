@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">使用 async和await结合 发送请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn = document.querySelector('#btn')
+        
+        btn.onclick = async function(){
+
+            try {
+                let result = await axios({
+                    method : 'get',
+                    url : 'http://127.0.0.1:3000/movies'
+                })
+
+                console.log(result)
+            } catch (error) {
+                console.log(error)
+            }
+            
+
+        }
+
+        
+     };
+    </script>
+</body>
+</html>

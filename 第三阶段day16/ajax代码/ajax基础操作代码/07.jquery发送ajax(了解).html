@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <button>发送get请求</button>
+    <button>发送post请求</button>
+    <button>通用发送方式</button>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script>
+     
+     $(function(){
+        $('button:eq(0)').click(function(){
+            // 发送get请求
+            // 参数1： 发送的路径：请求的url
+            // 参数2：是一个对象，键值对的数据 ：
+            //          如果是get 请求，该数据就是查询字符串
+            //          如果是post 请求，该数据就是请求体
+            // 参数3：回调函数
+            $.get('http://127.0.0.1:8080/jquery',{a:100,b:200},function(data){
+                // data 就是后端人员传递过来的数据（响应体）
+                console.log(data)
+                console.log(JSON.parse(data).name)
+            })
+        })
+
+        $('button:eq(1)').click(function(){
+            // 发送post请求
+            $.post('http://127.0.0.1:8080/jquery',{a:100,b:200},function(data){
+                console.log(data)
+            })
+        })
+
+        $('button:eq(2)').click(function(){
+            // 通用的发送方式
+            $.ajax({
+                // 设置请求类型
+                method : 'post', 
+                // 设置请求的url 
+                url : 'http://127.0.0.1:8080/jquery',
+                // 设置请求头
+                headers : {
+                    a : 100,
+                    b : 200
+                },
+                // 设置请求体：get请求是查询字符串，post请求才是请求体
+                data : {
+                    c : 300,
+                    d : 400
+                },
+                // 成功的方法
+                success : function(data){
+                    console.log(data)
+                },
+                // 失败的方法
+                error : function(){
+                    console.log('失败')
+                }
+            })
+        })
+     })
+    </script>
+</body>
+</html>

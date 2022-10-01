@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数参数默认值</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //ES6 允许给函数参数赋值初始值
+    //1. 参数直接设置默认值  具有默认值的参数, 位置一般要靠后(潜规则)
+    // function main(a,b,c=3,d=4){
+    //     console.log(a,b,c,d)
+    // }
+    // main(10,20)
+
+    //2. 与解构赋值结合使用   解构赋值的形式先后顺序不影响
+    function main({age,name}){
+        console.log(age)
+        console.log(name)
+    }
+    main({
+        name : '李四',
+        age : 18
+    })
+</script>
+</html>

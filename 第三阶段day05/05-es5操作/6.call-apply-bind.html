@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call-apply-bind</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // call  apply  bind 三者的区别？
+    // 修改this指向
+    // call方法：参数1是修改后的this， 从参数2开始，书写实参列表
+    // apply方法：参数1是修改后的this，参数2是数组，数组中的元素是实参列表
+    // bind方法，该方法的参数是修改后的this，
+    // bind方法执行后的返回值是一个新函数
+    // 我们要调用全新的函数，并且传递实参
+
+    
+    function fun(a,b,c){
+        console.log(this)
+        console.log(a,b,c)
+    }
+    // fun()  //普通函数调用 ， this 是 window
+    // fun.call({},1,2,3)
+    // fun.apply([],[4,5,6])
+
+    // var test = fun.bind({})
+    // test(7,8,9)
+
+    fun.bind({})(7,8,9)
+
+    fun.bind({},7,8,9)()
+
+
+    // console.log(test)
+    // console.log(fun)
+
+    // console.log(test === fun) //false
+</script>
+</html>

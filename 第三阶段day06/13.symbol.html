@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>symbol</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //ES6 引入了一种新的原始数据类型 Symbol，表示独一无二的值
+
+    console.log(123)
+    console.log('abc')
+    console.log({name:'张三'})
+    console.log(undefined)
+
+    let s = Symbol()
+    console.log(s)
+
+    // console.log(a)
+
+    // 可以设置实参：实参是为了给程序员做提醒
+    let s2 = Symbol('zhangsan')
+    console.log(s2)
+
+    //1)Symbol的值是唯一的，用来解决命名冲突的问题
+    let a = 500;
+    let b = 500;
+    console.log(a === b)
+
+    let c = Symbol('lisi')
+    let d = Symbol('lisi')
+
+    console.log(c)
+    console.log(d)
+    console.log(c === d)  //false
+
+    console.log(typeof c) //symbol
+
+    //2)Symbol值不能与其他数据进行运算
+    // console.log(c + 100)
+    // console.log(c + '100')
+
+    // 防止命名冲突，是解决变量命名重的么 ? 不是
+   
+
+
+</script>
+</html>

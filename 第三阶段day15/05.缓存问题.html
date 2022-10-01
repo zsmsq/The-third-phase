@@ -1,0 +1,40 @@
+<!-- 怎么样保证每一次发送ajax请求的路径都不一样 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     let box = document.querySelector('#box')
+     box.onclick = function(){
+    let xhr = new XMLHttpRequest();
+     //  怎么样保证每一次发送ajax请求的路径都不一样 
+    // 解决方案：只需要给路径添加一个实时变化的查询字符串
+     xhr.open('get','http://127.0.0.1:8080/get?t='+Date.now())
+     xhr.send()
+     xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4){
+         console.log(xhr.responseText)
+          }
+        }
+    }
+    </script>
+</body>
+</html>

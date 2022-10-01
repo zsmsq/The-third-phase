@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符应用</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+<script type="text/javascript">
+    //1. 数组的合并
+    // let arr1 = [1,2,3]
+    // let arr2 = [7,8,9]
+
+    // 方式一：
+    // let newArr = arr1.concat(arr2)
+    // console.log(newArr)
+
+    // 方式二：
+    // let newArr = [...arr1,...arr2]
+    // console.log(newArr)
+    
+    //2. 数组克隆(复制，拷贝)
+    // let arr = [9,8,7,6,5]
+
+    // // let newArr = [...arr]
+    // // console.log(newArr)
+
+    // let newArr = arr.concat([])
+    // console.log(newArr)
+    
+    //3. 将伪数组转为真正的数组
+    //  [...伪数组]
+    function fn(){
+        console.log(arguments)
+        console.log([...arguments])
+    }
+    fn(1,2,3,4)
+    
+
+</script>
+</html>

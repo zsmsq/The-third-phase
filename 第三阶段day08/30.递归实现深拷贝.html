@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归实现深拷贝思路</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // 老对象
+    let obj = {
+        name : '尚硅谷',
+        pos : ['北京','西安','深圳','武汉','上海','成都'],
+        founder : {
+            name : '刚哥',
+            age : 42
+        },
+        test : function(){
+            console.log('测试')
+        }
+    }
+
+    // 分析：新对象
+    // 1.准备容器，{}  []
+    let newObj = {}
+    // 2.给新对象添加 name 属性
+    newObj.name = obj.name;
+    // 3.给新对象添加 pos 属性
+    // newObj.pos = obj.pos;
+    newObj.pos = []
+    newObj.pos[0] = obj.pos[0]
+    newObj.pos[1] = obj.pos[1]
+    newObj.pos[2] = obj.pos[2]
+    newObj.pos[3] = obj.pos[3]
+    newObj.pos[4] = obj.pos[4]
+    newObj.pos[5] = obj.pos[5]
+    // 4.给新对象添加 founder 属性
+    // newObj.founder = obj.founder;
+    newObj.founder = {}
+    newObj.founder.name = obj.founder.name;
+    newObj.founder.age = obj.founder.age;
+    // 5.给新对象添加 test 方法
+    // newObj.test = obj.test;
+    newObj.test = obj.test.bind(newObj)
+
+    // 修改新对象的属性
+    newObj.pos[1] = 'xian'
+    newObj.founder.age = 40;
+    newObj.test()
+
+
+    console.log(obj)
+    console.log(newObj)
+
+    // console.log(newObj.test)
+    // console.log(obj.test)
+    // console.log(newObj.test === obj.test)
+
+    
+
+</script>
+</html>

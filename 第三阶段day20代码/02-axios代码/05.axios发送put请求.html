@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">发送put请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn = document.getElementById('btn');
+
+        btn.onclick = async function(){
+            // 发送 put 请求  ---- 整体更新
+            // axios.put()
+            // 参数1：请求的url
+            // 参数2：更新的内容
+            // let result = await axios.put('http://127.0.0.1:3000/movies/1',{name:'修改后的电影名'})
+            // console.log(result)
+
+            // 发送 patch 请求 --- 局部数据更新
+            // axios.patch()
+            // 参数1：请求的url
+            // 参数2：更新的内容
+            let result = await axios.patch('http://127.0.0.1:3000/movies/7',{name:'新的名字'})
+            console.log(result)
+        }
+
+        
+        
+     };
+    </script>
+</body>
+</html>

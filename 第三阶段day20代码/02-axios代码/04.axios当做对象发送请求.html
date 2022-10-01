@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">get 发送请求</button>
+    <button id="btn2">post 发送请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn1 = document.querySelector('#btn1')
+        let btn2 = document.querySelector('#btn2')
+
+        // axios 函数  是对象
+        // axios.xx
+        btn1.onclick = async function(){
+            // 发送 get请求
+            // 参数1：请求的url
+            // 参数2：配置对象
+            let result = await axios.get('http://127.0.0.1:3000/movies')
+
+            console.log(result.data)
+        }
+        btn2.onclick = function(){
+            // 发送 post 请求
+            // 参数1：请求的url
+            // 参数2：设置请求体
+            // 参数3：配置对象
+            let result = axios.post('http://127.0.0.1:3000/movies',{name:'xxxx',director:'yyy'})
+        
+            console.log(result)
+
+            result.then(value=>{
+                console.log(value.data)
+            })
+        }
+     };
+    </script>
+</body>
+</html>

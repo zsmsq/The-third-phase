@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 并集选择器：并列  选取器1 ，选择器2，选择器3 ， */
+        #box , #box2{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+        /* 交集选择器：并且  选择器1选择器2  */
+
+        li{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+        li.active{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+    <div id ="box2"> </div>
+
+    <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+     };
+    </script>
+</body>
+</html>

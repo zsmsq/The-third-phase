@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+    //  点击box 发送ajax请求
+    let box = document.querySelector('#box')
+
+    box.onclick = function(){
+        // 发送ajax
+        let xhr = new XMLHttpRequest();
+
+        // 想设置请求行的信息，就去找 初始化
+        // 初始化：  参数1：设置请求类型    参数2：设置请求的url
+        xhr.open('post','http://127.0.0.1:8080/get?wd=atguigu&pos=xian')
+
+        // 设置请求头
+        xhr.setRequestHeader('abc','123')
+
+        // 设置请求体:get请求中请求体是空的，post请求才有请求体
+        xhr.send('username=xiaoA&psw=123456')
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                // 获取响应行
+                // 获取响应的状态码
+                console.log(xhr.status)
+                // 获取响应的状态码的字符串
+                console.log(xhr.statusText)
+
+                // 获取响应头
+                console.log(xhr.getAllResponseHeaders())
+
+                // 获取响应体
+                console.log(xhr.responseText)
+            }
+            
+        }
+    }
+
+    // 设置请求报文的信息
+    // 请求行
+        // 设置请求类型
+        // 设置请求的url
+        // 协议的版本
+    // 设置请求头
+    // 设置请求体:get请求中请求体是空的，post请求才有请求体
+
+
+
+    </script>
+</body>
+</html>

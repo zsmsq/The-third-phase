@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+    // 自调函数
+    // 匿名函数自调用
+    // IIFE
+    // 立即执行函数表达式
+
+   /*  (function(window){
+        console.log(window)
+    })(window); */
+
+
+    // (function(w){
+    //     console.log(w)
+    // })(w);
+
+    // 函数入口在 ：函数调用的位置
+
+    // 形参：形式上的参数，是一个指代
+    // 实参：真实存在的参数
+
+
+    /* (function(w){
+        console.log(111)
+    })(w); */
+
+    /* (function(){
+        console.log(111)
+    })(); */
+
+   /*  var w = 1;
+    (function(w){
+        console.log(111)
+    })(w); */
+
+   /*  (function(w){
+        console.log(111)
+    })('w'); */
+
+    (function(w){
+        console.log(111)
+    })(666);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spread扩展运算符</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    
+    //spread扩展运算符  ...
+    
+    //数组的展开
+    // let arr = [7,8,9]
+
+    // let newArr = [...arr];
+
+    // console.log(arr)
+    // console.log(newArr)
+    // console.log(arr === newArr)  //不等
+
+    //对象的展开
+    let obj1 = {
+        a : 100,
+        b : 200
+    }
+    let obj2 = {
+        c : 300,
+        d : 400
+    }
+    let obj3 = {
+        e : 500,
+        a : 600
+    }
+    // 如果有相同属性，会发生覆盖操作
+    let newObj = {...obj1,...obj2,...obj3}
+    console.log(newObj)
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-reject</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // reject 是函数对象的方法，与实例对象无关
+    // Promise.reject()  是正确的
+    // p.reject()  是错误的
+    // reject 方法 会给我们返回一个 失败的 promise实例对象
+
+    let p1 = Promise.reject()
+    console.log(p1)
+
+    let p2 = Promise.reject('ok')
+    console.log(p2)
+
+    let p3 = Promise.reject({name:'尚硅谷'})
+    console.log(p3)
+
+    let p4 = Promise.reject(new Promise((resolve,reject)=>{
+        resolve('okkkk')
+    }))
+    // p4 是失败的 promise实例对象 ， p4的结果值 就是这个参数（成功的promise实例对象）
+    console.log(p4)
+
+    let p5 = Promise.reject(new Promise((resolve,reject)=>{
+        reject('errrrrr')
+    }))
+    console.log(p5)
+
+</script>
+</html>

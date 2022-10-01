@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // ajax默认遵循的是同源
+
+        // http://127.0.0.1:5500/work/16-ajax%E
+        // http://127.0.0.1:8080/testAjax
+
+        // 能不能像个办法，变成同源
+        // http://127.0.0.1:8080/index.html
+        // http://127.0.0.1:8080/testAjax
+
+        box.onclick = function(){
+            let xhr = new XMLHttpRequest()
+            xhr.open('get','http://127.0.0.1:8080/testAjax')
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    console.log('成功')
+                }
+            }
+
+        }
+
+     };
+    </script>
+</body>
+</html>

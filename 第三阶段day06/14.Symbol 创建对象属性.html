@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbol 创建对象属性</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //向对象中添加方法 up down
+     let game = {
+        name:'俄罗斯方块',
+    };
+    
+    // 可以给对象设置独一无二的属性
+    // 如果在对象中，存在相同的属性，会发生覆盖操作
+    // 如果这个相同的属性是通过 Symbol表示的，就不会发生覆盖操作
+
+    // 方法一：
+    //  1.声明 symbol的值
+    let up = Symbol('shang')
+    let up2 = Symbol('shang')
+    // 2.把 symbol的值 作为对象的属性名 给对象添加上去
+    game[up] = function(){
+        console.log('向上移动的逻辑')
+    }
+    game[up2] = function(){
+        console.log('向上移动的特效')
+    }
+    // game.up = function(){
+    //     console.log('上1')
+    // }
+    // game.up = function(){
+    //     console.log('上2')
+    // }
+    // 3.调用该方法
+    game[up]();
+    game[up2]();
+    game.up()
+    console.log(game)
+ 
+    // // 之前的语法 --- 第一个同事写的
+    // game.up = function(){
+    //     console.log('盒子移动')
+    // }
+
+    // // 之前的语法 --- 第二个同事写的
+    // game.up = function(){
+    //     console.log('盒子向上移动的特效')
+    // }
+
+    // 方式二：给对象设置独一无二的属性
+    // 1.声明 symbol的值
+    // let down = Symbol('xia')
+    // let down2 = Symbol('xia')
+    // // 2.把 symbol的值 作为对象的属性名 给对象添加上去
+    // let game = {
+    //     name:'俄罗斯方块',
+    //     [down] : function(){
+    //         console.log('向下移动的效果')
+    //     },
+    //     [down2] : function(){
+    //         console.log('向下移动的特效')
+    //     },
+    //     down : function(){
+    //         console.log('下1')
+    //     },
+    //     down : function(){
+    //         console.log('下2')
+    //     }
+    // };
+    // // 3.调用该方法
+    // game[down]()
+    // game[down2]()
+    // game.down()
+    // game['down']()
+
+    // console.log(game)
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <button id="btn">点击发送 post 请求</button>
+
+    <!-- 引入 axios 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+     window.onload = function () {
+        let btn = document.querySelector('#btn')
+
+        btn.onclick = function(){
+            let result = axios({
+                // 请求类型
+                method : 'post',
+                // 请求的url
+                url : 'http://127.0.0.1:3000/movies',
+                // 如果没有设置请求体的数据，会给我们提交一个空数据
+
+                // 设置请求体的数据：请求体数据以查询字符串格式出现
+                // data : 'name=电影名字&director=我也不知道'
+
+                // 设置请求体的数据：请求体数据以 json 格式出现
+                data : {
+                    name :'小电影',
+                    director : '刘立新'
+                }
+
+            })
+            console.log(result)
+        }
+     };
+    </script>
+</body>
+</html>

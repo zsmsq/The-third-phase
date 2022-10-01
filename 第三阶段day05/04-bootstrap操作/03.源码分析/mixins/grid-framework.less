@@ -1,0 +1,158 @@
+// 列的混合声明
+.make-grid-columns() { 
+  .col(@index) {  //混合的声明 形参一个
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    // @item:".col-xs-1, .col-sm-1, .col-md-1, .col-lg-1"
+    .col((@index + 1), @item);
+    // .col(2,".col-xs-1, .col-sm-1, .col-md-1, .col-lg-1")
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { //混合声明，参数两个，@index =< 12
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+    // @item: ".col-xs-2, .col-sm-2, .col-md-2, .col-lg-2";
+    // .col(3, ".col-xs-1, .col-sm-1,... .col-lg-2");
+    // @item:".col-xs-3, .col-sm-3, .col-md-3, .col-lg-3"
+    // .col(4, ".col-xs-1, .col-sm-1,... .col-lg-3");
+    // ...
+    // @item:".col-xs-10, .col-sm-10, .col-md-10, .col-lg-10"
+    // .col(11, ".col-xs-1, .col-sm-1,... .col-lg-10");
+    // @item: ".col-xs-11, .col-sm-11, .col-md-11, .col-lg-11";
+    // .col(12, ".col-xs-1, .col-sm-1,... .col-lg-11");
+    // @item: ".col-xs-12, .col-sm-12, .col-md-12, .col-lg-12";
+    // .col(13, ".col-xs-1, .col-sm-1,... .col-lg-12");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { //混合声明，参数两个，@index > 12
+    @{list} {
+      position: relative;
+      min-height: 1px;
+      padding-left:  ceil((@grid-gutter-width / 2)); // 15px
+      padding-right: floor((@grid-gutter-width / 2)); // 15px
+    }
+  }
+  .col(1); //混合调用，参数一个，实参是1
+}
+// 混合声明---浮动
+.float-grid-columns(@class) {
+  .col(@index) { //混合声明，参数一个
+    @item: ~".col-@{class}-@{index}";
+    // @item: ".col-xs-1"
+    .col((@index + 1), @item);
+    //.col(2, ".col-xs-1");
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { //混合声明，参数两个，@index =< 12
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+    // @item: ".col-xs-2";
+    // .col(3, ".col-xs-1, .col-xs-2");
+    // ...
+    //  @item: ".col-xs-10";
+    // .col(11, ".col-xs-1, .col-xs-2,... .col-xs-10");
+    //  @item: ".col-xs-11";
+    // .col(12, ".col-xs-1, .col-xs-2,... .col-xs-11");
+    // @item: ".col-xs-12";
+    // .col(13, ".col-xs-1, .col-xs-2,... .col-xs-12");
+
+  }
+  .col(@index, @list) when (@index > @grid-columns) { //混合声明，参数两个，@index > 12
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); //混合调用，参数一个 ，实参是1
+}
+// 混合声明：宽度
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .col-@{class}-@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+  //.col-xs-12{width:100%}
+  //.col-xs-11{width:11/12}
+  //.col-xs-10{width:10/12}
+  // ...
+  // .col-xs-2{width:2/12}
+  // .col-xs-1{width:1/12}
+
+}
+// 列偏移 --- margin-left
+.calc-grid-column(@index, @class, @type) when (@type = offset) {
+  .col-@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+  // .col-xs-offset-12 {margin-left:100%}
+  // .col-xs-offset-11 {margin-left:11/12}
+  // .col-xs-offset-10 {margin-left:10/12}
+  // .col-xs-offset-9 {margin-left:9/12}
+  // ...
+  // .col-xs-offset-2 {margin-left:2/12}
+  // .col-xs-offset-1 {margin-left:1/12}
+  // .col-xs-offset-0 {margin-left:0%}
+}
+// 列排序 push --- left
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+  .col-@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+  // .col-xs-push-12{left:100%}
+  // .col-xs-push-11{left:11/12}
+  // .col-xs-push-10{left:10/12}
+  // ....
+  // .col-xs-push-2{left:2/12}
+  // .col-xs-push-1{left:1/12}
+}
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
+  .col-@{class}-push-0 {
+    left: auto;
+  }
+  // .col-xs-push-0{left: auto;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 列排序：pull --- right
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+  .col-@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+  // .col-xs-pull-12 {right:100%}
+  // .col-xs-pull-11 {right:11/12}
+  // ...
+  // .col-xs-pull-2 {right:2/12}
+  // .col-xs-pull-1 {right:1/12}
+}
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
+  .col-@{class}-pull-0 {
+    right: auto;
+  }
+  // .col-xs-pull-0 {right: auto;}
+}
+// 混合声明   @index：12, @class：xs, @type:pull
+.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+  .calc-grid-column(@index, @class, @type); //混合调用
+  .loop-grid-columns((@index - 1), @class, @type);  //混合调用
+}
+
+//混合声明    @class ：xs
+.make-grid(@class) {
+  .float-grid-columns(@class); // 混合调用 --- 浮动
+  .loop-grid-columns(@grid-columns, @class, width); //混合调用 --- 宽度
+  .loop-grid-columns(@grid-columns, @class, offset);  //混合调用 --- 列偏移 --- margin-left
+  .loop-grid-columns(@grid-columns, @class, push);  //混合调用 ---列排序 --- left
+  .loop-grid-columns(@grid-columns, @class, pull);  //混合调用---列排序 --- right
+  
+  
+}

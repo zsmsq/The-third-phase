@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象扩展</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //1. 判断两个值是否完全相等  === Object.is
+    // console.log(Object.is(10,10))  //true
+    // console.log(Object.is(10,'10'))   //false
+    // console.log(NaN === NaN)             //false
+    // console.log(Object.is(NaN,NaN))  //true ,其实不等
+    
+    //2. Object.assign 对象的合并
+    // let obj1 = {
+    //     a : 100,
+    //     b : 200
+    // }
+    // let obj2 = {
+    //     c : 300,
+    //     d : 400
+    // }
+
+    // 方式一
+    // let result = {...obj1,...obj2}
+    // console.log(result)
+    // console.log(obj1)
+    // console.log(obj2)
+
+    // 方式二：
+    // let result = Object.assign(obj2,obj1)   //后面的统一添加到第一个里面去
+    // console.log(result)
+    // console.log(obj1)
+    // console.log(obj2)
+
+    // console.log(result === obj2) //true 在同一个空间
+
+    
+    // 3. 直接修改 __proto__ 设置原型    //作为了解
+    // let obj1 = {
+    //     a : 100,
+    //     b : 200
+    // }
+    // let obj2 = {
+    //     c : 300,
+    //     d : 400
+    // }
+    // obj1.__proto__ = obj2;
+    // console.log(obj1)
+
+   
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击获取天气</button>
+
+    <script>
+        /**
+         * 功能发送 AJAX GET 请求
+         * 函数名 sendAJAX  
+         * 参数 :  url
+         * 返回结果: promise 对象 成功的结果值为『响应体』  失败的结果值为『响应状态码』
+         */
+
+        //  封装函数
+        function sendAJAX(url){
+            return new Promise((resolve,reject)=>{
+                let xhr = new XMLHttpRequest()
+                xhr.open('get',url)
+                xhr.send()
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4){
+                        if(xhr.status >= 200 && xhr.status < 300){
+                            // 成功
+                            resolve(xhr.responseText)
+                        }
+                        else{
+                            // 失败
+                            reject(xhr.status)
+                        }
+                    }
+                }
+            })
+        }
+
+        // 使用
+        // sendAJAX('https://www.yiketianqi.com/free/week?unescape=1&appid=52476632&appsecret=nXkySa4E&city=西安')
+        //     .then(value=>{
+        //         console.log(value)
+        //     },reason=>{
+        //         console.log(reason)
+        //     })
+
+        async function mian(){
+            let result = await sendAJAX('https://www.yiketianqi.com/free/week?unescape=1&appid=52476632&appsecret=nXkySa4E&city=西安');
+            console.log(result)
+        }
+        mian()
+
+
+    </script>
+</body>
+</html>

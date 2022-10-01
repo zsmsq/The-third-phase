@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的声明</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // 构造函数   
+    // function Phone(brand,price){
+    //     this.b = brand;
+    //     this.p = price;
+    // }
+
+    // Phone.prototype.call = function(){
+    //     console.log('打电话')
+    // }
+    
+    // // 创建实例对象
+    // let huawei = new Phone('华为',4000)
+    // huawei.call()
+    // console.log(huawei)
+
+    // 类
+    class Phone{
+        // 实例对象的属性
+        constructor(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        // 实例对象的方法
+        call(someone){
+            console.log('给'+ someone +'打电话')
+        }
+    }
+    // 创建实例对象
+    let huawei = new Phone('华为',3000)
+    huawei.call('xiaoA')
+    console.log(huawei)
+</script>
+</html>

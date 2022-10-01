@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        // ajax , fetch , axios 的区别？
+        // 三者都是用于发送请求
+
+        // ajax：Ajax 是一种思想，XMLHttpRequest 只是实现 Ajax 的一种方式
+        // 特点：局部刷新页面，无需重载整个页面。
+        // 	一种技术统称，主要利用XHR实现网络请求
+
+        // fetch：Fetch 是在 ES6 出现的，它使用了 ES6 提出的 promise 对象。它是 XMLHttpRequest 的替代品。
+        // 特点：
+        //      1.使用 promise，不使用回调函数。
+        //      2.采用模块化设计，比如 rep、res 等对象分散开来，比较友好。
+        //      3.通过数据流对象处理数据，可以提高网站性能。
+        //      4.不支持ie
+        // 具体API，基于promise，实现网络请求
+
+        //axios：
+        // Axios 是随着 Vue 的兴起而被广泛使用的，
+        // 目前来说，绝大多数的 Vue 项目中的网络请求都是利用 Axios 发起的。
+        // 当然它并不是一个思想，或者一个原生 API，它是一个封装库。
+        // 特点：
+            // 1.从浏览器中创建 XMLHttpRequests
+            // 2.从 node.js 创建 http 请求
+            // 3.支持 Promise API
+            // 4.拦截请求和响应
+            // 5.转换请求数据和响应数据
+            // 6.取消请求
+            // 7.自动转换 JSON 数据
+            // 8.客户端支持防御 XSRF
+        // 一个封装库，基于XHR封装，较为推荐使用
+
+     };
+    </script>
+</body>
+</html>

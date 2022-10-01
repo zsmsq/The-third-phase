@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise基本使用</title>
+</head>
+<body>
+
+<button id="btn">点击抽奖</button>
+
+</body>
+<script type="text/javascript">
+
+    //随机数生成函数
+    function rand(m,n){
+        return Math.ceil(Math.random() * (n-m+1)) + m-1;
+    }
+    // 点击按钮, 1s 后显示是否中奖.  30%概率中奖
+    // 中奖弹出   恭喜恭喜  显示中奖号码
+    // 未中奖弹出  再接再厉  显示号码
+    // promise使用步骤：
+
+    let btn = document.querySelector('#btn')
+    btn.onclick = function(){
+        // 1.创建 promise 实例对象
+        // 参数是一个回调函数,该回调函数有两个形参，分别叫 resolve reject
+        // resolve 解决---成功       reject 拒绝---失败
+        let p = new Promise((resolve,reject)=>{
+            // 2.处理异步的语句
+            let num = rand(1,100)
+            setTimeout(function(){
+                if(num <= 30){
+                    // // 中奖弹出   恭喜恭喜  显示中奖号码
+                    // 3.调用成功和失败的回调函数
+                    resolve(num);
+                }else{
+                    // 未中奖弹出  再接再厉  显示号码
+                    // 3.调用成功和失败的回调函数
+                    reject(num);
+                }
+            },1000)
+        })
+        // 4.处理成功和失败的结果
+        // 参数是两个回调函数
+        // 第一个回调函数 用来处理成功的结果
+        // 第二个回调函数 用来处理失败的结果
+        p.then(value=>{
+            console.log('恭喜恭喜，您中奖了，显示中奖号码'+value)
+        },reason=>{
+            console.log('再接再厉，号码是'+reason)
+        })
+    }
+</script>
+</html>

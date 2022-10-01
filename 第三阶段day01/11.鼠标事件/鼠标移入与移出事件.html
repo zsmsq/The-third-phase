@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box">
+        <div id="inner"></div>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+
+        // 冒泡顺序：子 到 父
+
+        // 第一组：移入与移出事件
+        // box.onmouseover = function(){
+        //     console.log('入1')
+        // }
+        // box.onmouseout = function(){
+        //     console.log('出1')
+        // }
+
+        // 第二组：移入与移出事件
+        box.onmouseenter = function(){
+            console.log('入2')
+        }
+        box.onmouseleave = function(){
+            console.log('出2')
+        }
+
+
+
+
+     
+    </script>
+</body>
+</html>

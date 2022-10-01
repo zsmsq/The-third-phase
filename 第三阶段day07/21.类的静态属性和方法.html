@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的静态成员</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // 静态成员 是函数对象的，与实例对象无关
+
+    // 静态成员 : 函数对象的属性和方法
+
+    // 实例对象：new出来
+    // 函数对象：当函数作为对象来使用，这时，我们把函数称为函数对象
+
+    // $()
+    // $.isFunction()
+
+    // es5
+   /*  function Phone(brand,price){
+        this.brand = brand;
+        this.price = price;
+    }  
+    Phone.prototype.call = function(){
+        console.log('打电话')
+    } 
+    // 设置静态成员：
+    Phone.name2 = '这是一个手机厂'
+    Phone.change = function(){
+        console.log('好好干活')
+    }
+
+    // 创建实例对象
+    let xiaomi = new Phone('小米',2000)
+    console.log(xiaomi)
+
+    console.log(Phone.name2)
+    Phone.change()
+
+    console.dir(Phone) */
+
+    // es6
+    class Phone{
+        // 实例对象的属性
+        constructor(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        // 实例对象的方法
+        call(){
+            console.log('打电话')
+        }
+
+        // 书写静态成员
+        static name3 = '手机厂'
+        static change = function(){
+            console.log('好好干活')
+        }
+    }
+
+    // 创建实例对象
+    let oppo = new Phone('oppo',3000)
+    oppo.call()
+    console.log(oppo)
+
+    console.log(Phone.name3)
+    Phone.change()
+
+    console.dir(Phone)
+    
+    
+</script>
+</html>

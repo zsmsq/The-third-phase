@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宏任务和微任务</title>
+</head>
+<body>
+    <button>点击发送请求</button>
+    <script>
+        // 同步
+        // 异步
+
+        // 队列 :先进先出
+        // 栈 : 先进后出
+
+        // 宏队列:定时器的回调 , dom事件的回调 ，ajax 回调
+        // 微队列：promise用来处理成功和失败结果的这个回调函数（then方法中的那两个参数）
+
+        // 执行顺序：先同步 ，在执行 微任务 ，最后执行 宏任务
+
+        console.log(111) //同步
+        setTimeout(function(){
+            console.log(222)  //宏任务
+        })
+        console.log(333) //同步
+        new Promise((resolve,reject)=>{
+            resolve()
+            console.log(444)//同步
+        }).then(()=>{
+            console.log(555)  //微任务
+        },()=>{
+            console.log(666) //微任务
+        }).then(()=>{
+            console.log(777)  //微任务
+        }).then(()=>{},()=>{
+            console.log(888)  //微任务
+        })
+        console.log(999) //同步
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperties练习</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //要求添加 total 属性, 获得班级的总分数
+    var banji = {
+        name: 'HTML',
+        scores: [
+            {
+                name: '张三',
+                score: 90
+            },
+            {
+                name: '李四',
+                score: 85
+            },
+            {
+                name: '王五',
+                score: 95
+            },
+            {
+                name: '赵六',
+                score: 88
+            }
+        ]
+    };
+    
+    Object.defineProperties(banji,{
+        total : {
+            // 获得班级的总分数
+            get : function(){
+                var sum = 0;
+                for(var i = 0; i <banji.scores.length;i++){
+                    sum += banji.scores[i].score;
+                }
+                return sum;
+            }
+        },
+        avg : {
+            // 获得班级的平均分
+            get : function(){
+                return banji.total/banji.scores.length;
+            }
+        }
+    })
+
+    console.log(banji.total)
+    console.log(banji.avg)
+    
+</script>
+</html>

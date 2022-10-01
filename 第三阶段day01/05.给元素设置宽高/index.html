@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 给元素设置宽高：
+        1.直接通过css设置：width  height
+        2.通过js设置：box.style.width
+        3.通过定位给元素设置宽高
+        4.让父元素飘起来（浮动/定位），父元素宽度与高度由子元素自动撑开
+        
+        */
+        /* #box{
+            background: deeppink;
+
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            bottom: 50px;
+            right: 50px;
+        } */
+        #wrap{
+            border: 10px solid #000;
+
+            float: left;
+        }
+        #inner{
+            width: 200px;
+            height: 150px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id ="box"> </div> -->
+
+    <div id="wrap">
+        <div id="inner"></div>
+    </div>
+
+    <script>
+    // 页面中所有资源加载完后再执行
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // // 通过js设置宽度与高度
+        // box.style.width = '300px'
+        // box.style.height = '300px'
+
+     };
+    </script>
+</body>
+</html>

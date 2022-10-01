@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>事件委托_引入</title>
+</head>
+<body>
+
+<ul>
+  <li>11111</li>
+  <li>1111111</li>
+  <li>111111111</li>
+  <li>11111111111</li>
+</ul>
+<br>
+<button id="btn">添加新的li</button>
+<br>
+
+<script src="../js/jquery-1.10.1.js"></script>
+<script>
+  /*
+   需求：
+   1. 点击 li 背景就会变为红色
+   2. 点击 btn 就添加一个 li
+  */
+
+  // 2. 点击 btn 就添加一个 li
+  $('#btn').click(function(){
+    $('ul').append('<li>新来的li</li>')
+  })
+
+  // 1. 点击 li 背景就会变为红色
+  $('ul li').click(function(){
+      $(this).css('background','red')
+  })
+
+  // 事件委派 -- 事件委托 -- 事件代理
+  
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create属性配置</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // 老对象
+    var car = {
+        name : '汽车',
+        run : function(){
+            console.log('可以兜风')
+        }
+    }
+
+    // 以老对象为原型 创建 新对象
+    var aodi = Object.create(car,{
+        // 新属性
+        brand : {
+            value : '奥迪'  //静态设置属性
+        },
+        price : {    //动态设置属性 ：get set
+            // get 可以动态获取属性值
+            get : function(){
+                return this.m ; //aodi.price 是什么就看 return 后面写的啥
+            },
+            // set 可以动态设置属性值
+            set : function(v){
+                this.m = v;   //this 是 aodi对象
+            }
+            
+        }
+    })
+
+    // 修改 价格
+    aodi.price = '30w'  //写  ---设置
+
+    console.log(aodi)
+    console.log(aodi.price)  //读  ---获取
+    
+
+    // var obj = {
+    //     test : function(){
+    //         console.log(this)  //this 是 obj对象
+    //     }
+    // }
+    // obj.test()
+
+</script>
+</html>

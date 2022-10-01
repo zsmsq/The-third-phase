@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            list-style: none;
+            overflow: hidden;
+        }
+        #wrap li{
+            width: 100px;
+            height: 100px;
+            background: green;
+            float: left;
+            margin-right: 10px;
+        }
+        #wrap li.active{
+            background: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <ul id="wrap">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+     window.onload = function () {
+        // 点击哪个盒子，哪个盒子变成 pink
+
+        // 获取元素
+        var liNodes = document.querySelectorAll('#wrap li')
+        // 遍历
+        for(var i = 0;i<liNodes.length;i++){
+            // 给每一个li保存下标
+            liNodes[i].index = i;
+            // 绑定点击事件
+            liNodes[i].onclick = function(){
+                // 排他
+                // 1.让所有的li变成原有的样子
+                for(var j=0;j<liNodes.length;j++){
+                    liNodes[j].className = ''
+                }
+                // 2.点谁 谁有 active
+                // console.log(i)
+                liNodes[this.index].className = 'active'
+            }
+        }
+
+     };
+    </script>
+</body>
+</html>

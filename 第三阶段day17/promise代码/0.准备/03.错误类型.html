@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误类型</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    /**
+     *
+     1.Error: 所有错误的父类型
+     2.ReferenceError: 引用的变量不存在
+     3.TypeError: 数据类型不正确的错误
+     4.RangeError: 数据值不在其所允许的范围内
+     5.SyntaxError: 语法错误
+     */
+
+     let e = new Error();
+     console.log(e)
+
+    // 2.ReferenceError: 引用的变量不存在
+    // console.log(a)
+
+    // 3.TypeError: 数据类型不正确的错误
+    // let obj = {}
+    // obj()
+
+    // 4.RangeError: 数据值不在其所允许的范围内
+    // let arr = new Array(-1)
+
+    // 5.SyntaxError: 语法错误
+    // for(let i=0;i<10,i++){
+    //     console.log(i)
+    // }
+
+
+
+</script>
+</html>

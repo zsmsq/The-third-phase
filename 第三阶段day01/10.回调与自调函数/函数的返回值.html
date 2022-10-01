@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        function main(a,b){
+            var c = a + b;
+            console.log(123)  //123
+            console.log(c)   //9
+
+            return 777;
+        }
+        // console.log(main(4,5))   //undefined
+
+        console.log(main(4,5)) // 777
+
+     };
+    </script>
+</body>
+</html>

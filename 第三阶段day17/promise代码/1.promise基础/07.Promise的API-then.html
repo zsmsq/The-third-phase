@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的API-then</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // then  是实例对象的方法，与函数对象无关
+    // Promise.then()  是错误的
+    // p.then()  是正确
+    // then方法是专门用来处理成功和失败的结果的
+
+    let p = new Promise((resolve,reject)=>{
+        // resolve('成功')
+        reject('失败')
+    })
+
+    p.then(value=>{
+        console.log(value)
+    },reason=>{
+        console.log(reason)
+    })
+
+
+</script>
+</html>

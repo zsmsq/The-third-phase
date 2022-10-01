@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 10px solid #000;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // clientWidth : content-box + padding-box   不包含边框
+        console.log(box.clientWidth)
+
+        // offsetWidth : content-box + padding-box + border-box  包含边框
+        console.log(box.offsetWidth)
+
+        // 通常下，父元素不要框  子元素要框
+
+
+        // 了解
+        // getBoundingClientRect().width :  content-box + padding-box + border-box
+        console.log(box.getBoundingClientRect().width)
+
+     };
+    </script>
+</body>
+</html>

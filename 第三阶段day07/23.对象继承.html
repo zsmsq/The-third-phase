@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象继承</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // 定义父级
+    class Phone{
+        // 父级实例对象的属性
+        constructor(brand,price){
+            this.brand = brand;
+            this.price = price
+        }
+        // 父级实例对象的方法
+        call(){
+            console.log('打电话')
+        }
+        sendMessage(){
+            console.log('发短信')
+        }
+    }
+    // 定义子级
+    class SmartPhone extends Phone{
+        // 子级实例对象的属性
+        constructor(brand,price,screen,pixel){
+            // 父级继承过来的属性
+            super(brand,price)
+            // 子级独有的属性
+            this.screen = screen;
+            this.pixel = pixel;
+        }
+        // 子级实例对象的方法（父级继承过来的方法，子级独有的方法）
+        // 父级继承过来的方法 ---不用管
+        // 只需要处理 子级独有的方法
+        playGame(){
+            console.log('打游戏')
+        }
+    }
+    // 创建父级实例对象
+    let oldPhone = new Phone('诺基亚',500)
+    // 创建子级实例对象
+    let vivo = new SmartPhone('vivo','4000','6inch','80w')
+    console.log(vivo)
+
+    vivo.call()
+    vivo.sendMessage()
+    vivo.playGame()
+
+    // vivo该实例对象是 new谁new出来的
+    console.log(vivo.__proto__.constructor)
+    console.log(oldPhone.__proto__.constructor)
+
+</script>
+</html>

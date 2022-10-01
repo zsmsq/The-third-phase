@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+        // await 也是一个关键字
+        // await 要结合 async 一块使用
+        // await 右边可以放一个表达式
+
+        async function mian(){
+            // 情况1：await 右边的表达式是 非promise实例对象 ---（了解）
+            // let result = await 123;
+            // console.log(result)
+
+            // 情况2：await 右边的表达式是 成功的promise实例对象
+            // 会把 成功的promise实例对象 的结果值 取出来
+            // let result = await new Promise((resolve,reject)=>{
+            //     resolve('ok6')
+            // })
+            // let result = await Promise.resolve('ok9')
+            // console.log(result)
+
+            // 情况3：await 右边的表达式是 失败的promise实例对象
+            // 要结合 try catch 一块使用
+
+            try {
+                let result = await new Promise((resolve,reject)=>{
+                    reject('err')
+                })
+                console.log(result)
+            } catch (e) {
+                console.log(e)
+            }
+           
+
+
+        }
+        mian()
+
+
+    </script>
+</body>
+</html>

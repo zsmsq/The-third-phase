@@ -1,0 +1,11 @@
+/*
+    这是多行注释，
+    可以被编译到css文件中
+
+    一会二，能不能看见我呢
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=./index.css.map */

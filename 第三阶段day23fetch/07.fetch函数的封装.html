@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">测试1</button>
+    <button id="btn2">测试2</button>
+
+    <script>
+     window.onload = function () {
+
+        
+        //  fetch 二次封装
+        async function http(obj){
+            // 使用解构赋值
+            let {url,params,data,method} = obj;
+
+            // 处理请求的url
+            let str = '';
+            // params 如果没有值，不管
+            // params 如果有值， {id:2}  => 'id=2&a=100&b=200'
+            if(params){
+                for(let i in params){
+                    str += `${i}=${params[i]}&`;
+                }
+
+                str = str.slice(0,-1)
+                url = url + '?' + str;
+            }
+            
+            let result;
+            if(data){
+                // 如果 data 有值，是 post请求
+                result = await fetch(url,{
+                    method,
+                    // 设置请求头
+                    headers : {
+                        "Content-Type" : 'application/json'
+                    },
+                    // 设置请求体  : json字符串
+                    body : JSON.stringify(data)
+                })
+
+            }else{
+                // 如果 data 没有值，是get请求 --- fetch直接发送即可
+                result = await fetch(url)
+
+            }
+
+            return result.json();
+
+        }
+
+
+        // 由后往前推：
+
+        // 我们的目标：
+        let btn1 = document.querySelector('#btn1')
+        let btn2 = document.querySelector('#btn2')
+
+        // 点击btn1，发送get请求
+        btn1.onclick = async function(){
+            let result1 = await http({
+                url : 'http://127.0.0.1:3000/movies',
+                params : {
+                    id : 2 
+                }
+            })
+
+            console.log(result1)  //我们需要的数据
+        }
+
+        
+        // 点击btn2,发送post请求
+        btn2.onclick = async function(){
+            let result2 = await http({
+                method:'post',
+                url : 'http://127.0.0.1:3000/movies',
+                params : {
+                    a : 100,
+                    b : 200 
+                },
+                
+            })
+
+            console.log(result2)
+        }
+
+
+
+
+     };
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class的get和set</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    // class Phone{
+    //     // 实例对象的属性
+    //     constructor(brand){
+    //         this.brand = brand;  //静态操作属性
+    //     }
+    //     // 动态操作属性  get  set
+    //     get price(){
+    //         return this.m;
+    //     }
+    //     set price(v){
+    //         this.m = v;
+    //     }
+    // }
+    // // 实例对象
+    // let  huawei = new Phone('华为')
+    // huawei.price = 5000;
+    // console.log(huawei)
+    // console.log(huawei.price)
+    // class Phone {
+        // 实例对象的属性
+        // constructor(brand)
+    // }
+
+    class Phone {
+        // 实例对象的属性
+        constructor(brand){
+            this.brand = brand ;  //静态操作的属性
+        }
+        //  动态操作属性 get set
+        // 获取
+        get price(){
+            // return 200;  //在里面隐藏
+            return this.m;
+        }
+        // 设置
+        set price  (v){
+            this.m =v ;  //将5000存起来
+        }
+    }
+    // 实例对象
+    let huawei = new Phone('华为')
+
+    huawei.price=5000;  //5000传到v
+    console.log(huawei)
+    console.log(huawei.price) //将200提出到外面
+</script>
+</html>

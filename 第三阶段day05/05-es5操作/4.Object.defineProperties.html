@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperties</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // 给 js 对象创建属性
+    // .
+    // ['']
+
+
+    // 对象
+    var car = {
+        name : '汽车',
+        run : function(){
+            console.log('可以兜风')
+        }
+    }
+
+    // 给 car对象 添加新属性
+    Object.defineProperties(car,{
+        // 新属性
+        brand : {
+            value : '奥迪',
+            configurable : true,//该属性是否可以被删除，默认是不可以的
+            writable : true, //该属性是否可以进行修改，默认是不可以的
+            enumerable:true //该属性是否可以进行 for in，默认是不可以的
+        }
+    })
+
+    // 删除对象的属性
+    // delete car.name;
+    // delete car.brand;
+
+    // 修改对象的属性值
+    // car.name = '大汽车'
+    // car.brand = 'aodi'
+
+    // 枚举 对象的属性
+    for(var item in car){
+        console.log(item)
+    }
+    
+    console.log(car)
+    
+</script>
+</html>

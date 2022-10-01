@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+     window.onload = function () {
+        var box = document.getElementById('box');
+
+        // box  对象  dom对象
+
+        // 给 box 添加属性
+        // box.abc = '123';
+
+        // console.log(box)
+        // console.dir(box)
+        // console.log(box.abc)
+
+        // box.onclick = function(){}
+
+        // 给 box 添加属性（标签上的属性）
+        // box.setAttribute('def','456')
+
+        // // 获取标签上属性值
+        // console.log(box.getAttribute('def'))  //456
+        // console.log(box)
+
+        // id是内置属性
+        // box.id = 'box2'
+        // box.setAttribute('id','box3')
+
+        // class
+        // box.className = 'xxx'
+        box.setAttribute('class','yyy')
+
+     };
+    </script>
+</body>
+</html>

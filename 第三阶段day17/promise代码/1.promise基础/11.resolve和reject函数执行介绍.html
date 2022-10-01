@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resolve和reject函数执行介绍</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    // resolve和reject函数 : 是执行器的形参
+    // resolve 与 reject 这两个函数 到底干了啥？
+    // 1.修改 promise实例对象的状态
+    // 2.修改 promise实例对象的结果值
+
+    let p = new Promise((resolve,reject)=>{
+
+        // 调用resolve函数
+        // resolve('成功')
+        reject('error')
+    })
+    console.log(p)
+
+    p.catch(reason=>{
+        console.log(reason)
+    })
+
+
+</script>
+</html>

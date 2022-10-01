@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链式调用</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    //5.promise如何串连多个操作任务?
+    // 5.链式调用 链式编程
+    // let p = new Promise((resolve,reject)=>{
+    //     // resolve('ok1')
+    //     reject('err')
+    // })
+
+    // p
+    // .then(value=>{
+    //     console.log(111)
+    // },reason=>{
+    //     console.log(222)
+    // })
+    // .then(value=>{
+    //     console.log(333)
+    // },reason=>{
+    //     console.log(444)
+    // })
+    // .then(value=>{
+    //     console.log(555)
+    // },reason=>{
+    //     console.log(666)
+    // })
+
+    let p = new Promise((resolve,reject)=>{
+        // resolve('ok1')
+        reject('err')
+    })
+
+    // 看上一个promise实例对象的状态，
+    // 如果成功，执行then中第一个回调函数
+    // 如果失败，执行then中第二个回调函数
+
+    // then中回调函数里面的return 决定 then方法的返回值的状态
+
+    p
+    .then(value=>{
+        console.log(111)
+        return new Promise((resolve,reject)=>{
+            resolve('ok2')
+        })
+    },reason=>{
+        console.log(222)
+    }) //p.then返回值是promise实例对象，成功，undefined
+    .then(value=>{
+        console.log(333)
+        return new Promise((resolve,reject)=>{
+            reject('err3')
+        })
+    },reason=>{
+        console.log(444)
+        return new Promise((resolve,reject)=>{
+            resolve('ok4')
+        })
+    })//then返回值是promise实例对象,失败，err3
+    .then(value=>{
+        console.log(555)
+        return new Promise((resolve,reject)=>{
+            resolve('ok5')
+        })
+    },reason=>{
+        console.log(666)
+        return new Promise((resolve,reject)=>{
+            reject('err6')
+        })
+    })//then返回值是promise实例对象,失败，err6
+   
+
+
+</script>
+</html>

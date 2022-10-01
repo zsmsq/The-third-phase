@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>集合</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    //声明集合  Set
+    // 参数是 数组
+    // 实例对象 构造函数
+    let s = new Set([1,2,1,1,2,1,2,4,3,3,4]);  //set会对数组中的元素进行自动去重
+
+    // console.log(s)
+    // console.log(typeof s)
+    
+    //1. 元素个数
+    // console.log(s.size)
+     
+    //2. 添加
+    // s.add(6)
+    // console.log(s)
+    
+    // //3. 删除
+    // s.delete(6)
+    // 代表删除的那个数字
+    // console.log(s)
+   
+    // //4. 检测集合中是否包含某个元素
+    // console.log(s.has(6))
+    // console.log(s.has(99))
+
+    //5. 清空
+    // s.clear()
+    // console.log(s)
+    
+    //6. for...of 遍历
+    // for(let item of s){
+    //     // item 集合中的每一个元素
+    //     console.log(item)
+    // }
+    
+    //7. 扩展运算符
+    console.log(s)
+    // 变成数组
+    let arr = [...s]
+    console.log(arr)
+
+</script>
+</html>

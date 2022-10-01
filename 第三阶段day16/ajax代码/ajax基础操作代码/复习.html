@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box"> </div>
+
+    <script>
+    //  ajax 发送请求的  --- 页面不刷新（没有历史记录）
+    //  http   搭建服务器
+    //  express  搭建服务器
+
+    // 1.创建 ajax 对象
+    let xhr = new XMLHttpRequest();
+
+    // 2.初始化
+    // 设置请求行： 设置请求类型  设置请求url
+    xhr.open('get/post','http://127.0.0.1:8080/get?a=100&b=200&time='+Date.now())
+    // 设置请求头
+    xhr.setRequestHeader('','')
+
+    // 3.发送
+    // 设置请求体
+    xhr.send('username=xiaoA&psw=123456')
+
+    // 4.绑定事件
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            // 成功和失败都在里面处理
+            if(xhr.status >= 200 && xhr.status < 300){
+                // 成功
+                // 获取响应状态码
+                console.log(xhr.status)
+                // 获取响应状态码字符串
+                console.log(xhr.statusText)
+                // 获取响应头
+                console.log(xhr.getAllResponseHeaders())
+                // 获取响应体
+                console.log(xhr.responseText)
+
+                // xhr.responseText 如果是 JSON字符串
+                console.log(JSON.parse(xhr.responseText))
+            }else{
+                // 失败
+            }
+        }
+    }
+
+
+    // 封装
+    let $ = {
+        post : function(url,data,callback){
+            // 发送请求
+            let xhr = new XMLHttpRequest();
+            xhr.open('post',url)
+
+            let str = ''
+            for(let i in obj){     
+                str += `${i}=${obj[i]}&`
+            }
+            str = str.slice(0,-1)
+            // send中存放请求体
+            xhr.send(str)
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        // 成功
+                        callback(xhr.responseText)
+                    }else{
+                        // 失败
+                        callback(xhr.status)
+                    }
+                }
+            }
+
+        }
+    }
+
+    // 跨域：有一个不满足就是跨域
+    // 同源：协议 域名 端口 一致
+
+    // 把所有的资源放在同一个服务器 --- 有问题
+
+    // jsonp：jsonp是借助 script标签 来模拟发送请求的动作
+
+    // 4.回调函数
+    function test(data){
+        // 获取数据
+        console.log(data)
+    }
+
+    // 1.创建 script标签
+    let script = document.createElement('script')
+    // 2.添加 src 属性     请求的目标地址
+    script.src = 'http://127.0.0.1:8080/jsonp?callback=test';
+    // 3.追加
+    document.body.appendChild(script)
+
+    </script>
+   <script>
+   </script>
+</body>
+</html>
